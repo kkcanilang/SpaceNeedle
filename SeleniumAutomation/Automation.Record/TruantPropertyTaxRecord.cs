@@ -37,7 +37,7 @@ namespace SeleniumAutomation.Automation.Record
             _accountParcelSummaryFramework = new AccountParcelSummaryFramework(_driver);
             _parcelNumber = ParcelNumber;
             _captchaSolver = new CaptchaSolver(_userName, _password);
-            _captchaBalance = _captchaSolver.Balance;
+            //_captchaBalance = _captchaSolver.Balance;
         }
 
         public string GetRow()

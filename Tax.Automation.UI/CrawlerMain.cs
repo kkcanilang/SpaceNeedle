@@ -1,25 +1,49 @@
 ﻿using SeleniumAutomation.Automation.Data;
 using SeleniumAutomation.Automation.Record.Utilities;
 using SeleniumAutomation.Automation.Run;
+using SeleniumAutomation.Frameworks.Model;
 using System;
 using System.Collections.Generic;
+using System.Threading;
+using System.Timers;
 using System.Windows.Forms;
+
 
 namespace Tax.Automation.UI
 {
     public partial class CrawlerMain : Form
     {
         private SeattleLeadsCrawl _crawler;
+        private System.Timers.Timer _timer;
 
         private PropertyTaxLocalReader _localDataReader;
+
+        private static readonly object LockObjCommonFunction2 = new object();
 
         public CrawlerMain()
         {
             _localDataReader = new PropertyTaxLocalReader();
             _crawler = new SeattleLeadsCrawl();
+            _timer = new System.Timers.Timer(10000);
+
+            _timer.Elapsed += OnTimedEvent;
+
+
+            ShowModalDialog();
 
             InitializeComponent();
+
             LoadSavedValues();
+            //this.StopButton.Visible = false;
+        }
+
+        private void ShowModalDialog()
+        {
+            DatabaseConnectionModal modal = new DatabaseConnectionModal()
+            {
+                Text = "DatabaseInfo",
+            };
+            modal.ShowDialog();      
         }
 
         private void LoadSavedValues()
@@ -54,15 +78,67 @@ namespace Tax.Automation.UI
                     PasswordTextField.Text = value;
                 }
             }
+
+            
+                try
+                {
+                    _crawler.DataReader.DatabaseServer = this.DatabaseServerNameTextfield.Text.Trim();
+                    SeattleTaxIdsCrawlerTotals totals = _crawler.DataReader.TaxTotals();
+
+                    this.TotalCrawledText.Text = totals.TotalCrawled;
+                    this.TotalNotCrawledText.Text = totals.TotalUncrawled;
+                    this.TotalCrawledErrorText.Text = totals.TotalErrorCrawled;
+
+                    if ((!string.IsNullOrEmpty(PasswordTextField.Text) && (!string.IsNullOrEmpty(UserNameTextfield.Text))))
+                    {
+                        this.TotalCaptchaCreditText.Text = CaptchaSolver.GetBalance(UserNameTextfield.Text, PasswordTextField.Text);
+
+                    }
+                }
+                catch (Exception e)
+                {
+                    
+                }
+            
+
+
+
+
+        }
+
+        private void OnTimedEvent(Object source, ElapsedEventArgs e)
+        {
+            _crawler.DataReader.DatabaseServer = this.DatabaseServerNameTextfield.Text.Trim();
+            SeattleTaxIdsCrawlerTotals totals = _crawler.DataReader.TaxTotals();
+
+            ThreadHelperClass.SetText(this, TotalCrawledText, totals.TotalCrawled);
+            ThreadHelperClass.SetText(this, TotalNotCrawledText, totals.TotalUncrawled);
+            ThreadHelperClass.SetText(this, TotalCrawledErrorText, totals.TotalErrorCrawled);
         }
 
         private void StartCrawlerButton_Click(object sender, EventArgs e)
         {
-            _crawler.DatabaseServer = this.DatabaseServerNameTextfield.Text.Trim();
+            StartCrawlerButton.Enabled = false;
+            this.StopButton.Enabled = true;
+            Thread newThread = new Thread(DoWork);
             
+            _timer.Start();
+            newThread.Start();
+            
+ 
+
+
+
+        }
+
+        private void DoWork()
+        {
+            _crawler.DatabaseServer = this.DatabaseServerNameTextfield.Text.Trim();
+
             _crawler.SeleniumWebDriverFolder = this.DriverFolderNameTextField.Text.Trim();
+            
+            
             _crawler.Run();
-           
         }
 
         private void RequiredFieldsChanged(object sender, EventArgs e)
@@ -83,8 +159,9 @@ namespace Tax.Automation.UI
 
             if (!this.taxParcelInformationTableAdapter.Connection.DataSource.Equals(currentDataSource))
             {
-                this.taxParcelInformationTableAdapter.Connection.ConnectionString = "Data Source=" + currentDataSource + ";Initial Catalog=PropertyTax;Integrated Security=True";
+                this.taxParcelInformationTableAdapter.Connection.ConnectionString = "Data Source=" + currentDataSource + ";Initial Catalog="+ PropertyTaxReader.DADABASE_NAME + "Integrated Security=True";
             }
+
             this.richTextBox1.Text = this.taxParcelInformationTableAdapter.Connection.ConnectionString;
             this.richTextBox1.Update();
         }
@@ -121,6 +198,7 @@ namespace Tax.Automation.UI
 
         private void ExportCSVButton_Click(object sender, EventArgs e)
         {
+            _crawler.DataReader.DatabaseServer = this.DatabaseServerNameTextfield.Text.Trim();
             List<List<String>> results = _crawler.DataReader.DilinquentTaxIds();
 
             string content =  OutputFile.DelinquientCSVContent(results);
@@ -135,6 +213,40 @@ namespace Tax.Automation.UI
             }
 
 
+        }
+
+        private void StopButton_Click(object sender, EventArgs e)
+        {
+            
+            _crawler.Stop();
+            this.StopButton.Enabled = false;
+            this.StartCrawlerButton.Enabled = true;
+        }
+    }
+
+    public static class ThreadHelperClass
+    {
+        delegate void SetTextCallback(Form f, Control ctrl, string text);
+        /// <summary>
+        /// Set text property of various controls
+        /// </summary>
+        /// <param name="form">The calling form</param>
+        /// <param name="ctrl"></param>
+        /// <param name="text"></param>
+        public static void SetText(Form form, Control ctrl, string text)
+        {
+            // InvokeRequired required compares the thread ID of the 
+            // calling thread to the thread ID of the creating thread. 
+            // If these threads are different, it returns true. 
+            if (ctrl.InvokeRequired)
+            {
+                SetTextCallback d = new SetTextCallback(SetText);
+                form.Invoke(d, new object[] { form, ctrl, text });
+            }
+            else
+            {
+                ctrl.Text = text;
+            }
         }
     }
 }

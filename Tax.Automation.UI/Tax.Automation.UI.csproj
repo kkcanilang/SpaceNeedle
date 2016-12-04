@@ -24,7 +24,8 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>26</ApplicationRevision>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>30</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -83,11 +84,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConnectingModal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConnectingModal.Designer.cs">
+      <DependentUpon>ConnectingModal.cs</DependentUpon>
+    </Compile>
     <Compile Include="CrawlerMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CrawlerMain.Designer.cs">
       <DependentUpon>CrawlerMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseConnectionModal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DatabaseConnectionModal.Designer.cs">
+      <DependentUpon>DatabaseConnectionModal.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -96,8 +109,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PropertyTaxDataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ConnectingModal.resx">
+      <DependentUpon>ConnectingModal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrawlerMain.resx">
       <DependentUpon>CrawlerMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DatabaseConnectionModal.resx">
+      <DependentUpon>DatabaseConnectionModal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

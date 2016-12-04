@@ -46,9 +46,21 @@ namespace SeleniumAutomation.Automation.Record.Utilities
             }
         }
 
+        public static string GetBalance(string userName,string password)
+        {
+           return new SocketClient(userName, password).Balance.ToString();
+        }
+
         public string Balance
         {
-            get { return _balance; }
+            get
+            {
+                if (_client != null)
+                {
+                    _client = (Client)new SocketClient(_userName, _password);
+                }
+                return _client.Balance.ToString();
+            }
         }
     }
 }

@@ -17,7 +17,7 @@ namespace SeleniumAutomation.Automation.Run
 {
     public class SeattleLeadsCrawl : ICrawl
     {
-        private static InternetExplorerDriver driver;
+        private static InternetExplorerDriver _driver;
         public static int retryCount = 0;
         public static int maxRun = 10;
         public static bool runAutomation = true;
@@ -25,6 +25,7 @@ namespace SeleniumAutomation.Automation.Run
         public static bool IsERealInfo = true;
 
         private PropertyTaxReader _dataReader;
+        private TruantPropertyTaxRecord _taxRecord;
         private string _databaseServer;
         private string _seleniumDriverFolder;
 
@@ -42,7 +43,7 @@ namespace SeleniumAutomation.Automation.Run
             _dataReader.DatabaseServer = _databaseServer;
             List<string> parcels = _dataReader.SelectRecord();
           
-            driver = new InternetExplorerDriver(_seleniumDriverFolder);
+            _driver = new InternetExplorerDriver(_seleniumDriverFolder);
             runAutomation = true;
             maxRun = 2;
 
@@ -54,6 +55,36 @@ namespace SeleniumAutomation.Automation.Run
 
 
             RunParcelTaxReaderInfo(_dataReader.SelectRecord());
+        }
+
+        public void Run(List<string> parcels)
+        {
+
+            StringBuilder sb = new StringBuilder();
+
+            //string[] parcels = { "6610000350", "7625703040" };
+            _dataReader.DatabaseServer = _databaseServer;
+            //List<string> parcels = _dataReader.SelectRecord();
+
+            _driver = new InternetExplorerDriver(_seleniumDriverFolder);
+            runAutomation = true;
+            maxRun = 2;
+
+            retryCount = 0;
+
+            appendRow = true;
+
+            string parcelNumber = string.Empty;
+
+
+            RunParcelTaxReaderInfo(_dataReader.SelectRecord());
+        }
+
+        public void Stop()
+        {
+            _driver.Close();
+            _driver.Dispose();
+            
         }
 
         public void  RunParcelTaxReaderInfo(List<string> parcels)
@@ -72,7 +103,7 @@ namespace SeleniumAutomation.Automation.Run
             {
                 appendRow = true;
            
-                driver = new InternetExplorerDriver(_seleniumDriverFolder);
+                _driver = new InternetExplorerDriver(_seleniumDriverFolder);
                 try
                 {
                     rawParcelNumber = parcels[rowCount];
@@ -80,8 +111,8 @@ namespace SeleniumAutomation.Automation.Run
 
                     stopWatch.Start();
 
-                    currentRow = new TruantPropertyTaxRecord(driver, parcelNumber).GetRow(new Hashtable());
-                    currentRow = new EReal(driver, parcelNumber).GetRow(currentRow);
+                    currentRow = new TruantPropertyTaxRecord(_driver, parcelNumber).GetRow(new Hashtable());
+                    currentRow = new EReal(_driver, parcelNumber).GetRow(currentRow);
                   
                     currentRow["TaxId"] = rawParcelNumber;
                     currentRow["RawTaxId"] = rawParcelNumber;
@@ -106,7 +137,7 @@ namespace SeleniumAutomation.Automation.Run
 
 
                     stopWatch.Reset();
-                    driver.Dispose();
+                    _driver.Dispose();
                 }
                 catch (ReRerunException re)
                 {
@@ -124,13 +155,13 @@ namespace SeleniumAutomation.Automation.Run
                 }
             }
 
-            driver.Dispose();
+            _driver.Dispose();
             Console.WriteLine("Crawl Complete");
         }
         private static bool ReRunLogic(ReRerunException re)
         {
             Console.WriteLine(re.Message);
-            driver.Close();
+            _driver.Close();
             Random rand = new Random();
 
             int timeout = rand.Next(15, 25) * 1000;

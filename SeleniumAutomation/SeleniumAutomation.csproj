@@ -105,6 +105,7 @@
     <Compile Include="Automation.Run\SeattleLeadsCrawl.cs" />
     <Compile Include="Automation.Run\ICrawl.cs" />
     <Compile Include="Frameworks.Model\Receipt.cs" />
+    <Compile Include="Frameworks.Model\SeattleTaxIdsCrawlerTotals.cs" />
     <Compile Include="Frameworks\AccountParcelSummaryFramework.cs" />
     <Compile Include="Frameworks\ERealPropertyDetailsFramework.cs" />
     <Compile Include="Frameworks\ERealPropertySearchFramework.cs" />

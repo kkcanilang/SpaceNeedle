@@ -1,6 +1,8 @@
-﻿using System;
+﻿using SeleniumAutomation.Frameworks.Model;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -35,15 +37,39 @@ namespace SeleniumAutomation.Automation.Data
         public static string COMPANY_COLUMN = "COMPANY";
         public static string PARCEL_COLUMN = "PARCEL ID";
         public static string LAND_USE_COLUMN = "LAND USE";
-        
+        public static string DADABASE_NAME = "PropertyTax_2;";
+
+
         public PropertyTaxReader(string databaseServer)
         {
             _databaseServer = databaseServer;
             _connectionString = "server=" + _databaseServer + ";" +
                                          "Trusted_Connection=yes;" +
-                                         "database=PropertyTax; " +
+                                         "database="+ DADABASE_NAME +
                                          "connection timeout=30";
-        } 
+        }
+
+        public async static Task<bool> TestConnection(string databaseServer)
+        {
+
+           string connectionString = "server=" + databaseServer + ";" +
+                                         "Trusted_Connection=yes;" +
+                                "database=" + DADABASE_NAME +
+                                         "connection timeout=30";
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    await conn.OpenAsync();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    conn.Dispose();
+                    return false;
+                }
+            }
+        }
 
         public  List<String> SelectRecord() 
         {
@@ -51,7 +77,7 @@ namespace SeleniumAutomation.Automation.Data
 
             _connectionString = "server=" + _databaseServer + ";" +
                                          "Trusted_Connection=yes;" +
-                                         "database=PropertyTax; " +
+      "database=" + DADABASE_NAME +
                                          "connection timeout=30";
 
             SqlConnection myConnection = new SqlConnection(_connectionString);
@@ -90,7 +116,7 @@ namespace SeleniumAutomation.Automation.Data
 
             _connectionString = "server=" + _databaseServer + ";" +
                                       "Trusted_Connection=yes;" +
-                                      "database=PropertyTax; " +
+                                      "database=" + DADABASE_NAME +
                                       "connection timeout=30";
 
             SqlConnection myConnection = new SqlConnection(_connectionString);
@@ -131,7 +157,7 @@ namespace SeleniumAutomation.Automation.Data
 
             _connectionString = "server=" + _databaseServer + ";" +
                                       "Trusted_Connection=yes;" +
-                                      "database=PropertyTax; " +
+                                      "database=" + DADABASE_NAME +
                                       "connection timeout=30";
 
             SqlConnection myConnection = new SqlConnection(_connectionString);
@@ -177,30 +203,7 @@ namespace SeleniumAutomation.Automation.Data
                 taxIds.Add(reader[PARCEL_COLUMN].ToString().Trim());
                 taxIds.Add(reader[LAND_USE_COLUMN].ToString().Trim());
 
-        //           private const string FIRST_NAME_COLUMN = "FIRST NAME";
-        //private const string LAST_NAME_COLUMN = "LAST NAME";
-        //private const string MAILING_STREET_COLUMN = "MAILING STREET";
-        //private const string MAILING_CITY_COLUMN = "MAILING CITY";
-        //private const string MAILING_STATE_COLUMN = "MAILING STATE";
-        //private const string MAILING_STATE_PROVINCE_COLUMN = "MAILing STATE/Province";
-        //private const string STREET_COLUMN = "street";
-        //private const string CITY_COLUMN = "CITY";
-        //private const string STATE_PROVINCE_COLUMN = "STATE/Province";
-        //private const string ZIP_POSTAL_CODE_COLUMN = "Zip/Postal Code";
-        //private const string YEAR_BUILT_COLUMN = "YR Built";
-        //private const string LEAD_STATUS_COLUMN = "LEAD STATUS";
-        //private const string LOT_SQUARE_FOOT_COLUMN = "LotSquareFoot";
-        //private const string LAST_SOLD_DATE_COLUMN = "LAST SOLD DATE";
-        //private const string CO_OWNER_NAME_COLUMN = "CO OWNER NAME";
-        //private const string ASSESSED_TOTAL_COLUMN = "ASSESSED TOTAL";
-        //private const string ASSESSED_STRUCTURE_COLUMN = "ASSESSED STRUCTURE";
-        //private const string ASSESSED_LAND_COLUMN = "Assessed Land";
-        //private const string ZONING_COLUMN = "ZONING";
-        //private const string COMPANY_COLUMN = "COMPANY";
-        //private const string PARCEL_COLUMN = "PARCEL ID";
-        //private const string LAND_USE_COLUMN = "LAND USE";
-
-        rows.Add(taxIds);
+                rows.Add(taxIds);
             }
 
             myConnection.Close();
@@ -210,21 +213,23 @@ namespace SeleniumAutomation.Automation.Data
             return rows;
 
         }
-
         public bool InsertRecord(Hashtable CurrentRow)
         {
             _connectionString = "server=" + _databaseServer + ";" +
                                       "Trusted_Connection=yes;" +
-                                      "database=PropertyTax; " +
+                                       "database=" + DADABASE_NAME +
                                       "connection timeout=30";
 
             SqlConnection myConnection = new SqlConnection(_connectionString);
 
             myConnection.Open();
 
-            using (var cmd = new SqlCommand() { CommandType = System.Data.CommandType.StoredProcedure,
-                                                CommandText = "iTaxParcelInformation",
-                                                Connection = myConnection })
+            using (var cmd = new SqlCommand()
+            {
+                CommandType = System.Data.CommandType.StoredProcedure,
+                CommandText = "iTaxParcelInformation",
+                Connection = myConnection
+            })
             {
 
                 foreach (DictionaryEntry column in CurrentRow)
@@ -242,12 +247,11 @@ namespace SeleniumAutomation.Automation.Data
             return true;
 
         }
-
         public bool InsertDelinquentRecords(Hashtable CurrentRow)
         {
             _connectionString = "server=" + _databaseServer + ";" +
                                       "Trusted_Connection=yes;" +
-                                      "database=PropertyTax; " +
+                                      "database=" + DADABASE_NAME +
                                       "connection timeout=30";
 
             SqlConnection myConnection = new SqlConnection(_connectionString);
@@ -275,7 +279,48 @@ namespace SeleniumAutomation.Automation.Data
             GC.Collect();
 
             return true;
+        }
 
+        public SeattleTaxIdsCrawlerTotals TaxTotals()
+        {
+            DataSet ds = TaxTotalReader();
+
+            return new SeattleTaxIdsCrawlerTotals()
+            {
+                TotalCrawled = ds.Tables[0].Rows[0]["TOTAL_CRAWLED"].ToString(),
+                TotalUncrawled = ds.Tables[1].Rows[0]["TOTAL_UNCRAWLED"].ToString(),
+                TotalErrorCrawled = ds.Tables[2].Rows[0]["TOTAL_ERRORS"].ToString()
+
+            };
+
+        }
+
+
+        private DataSet TaxTotalReader()
+        {
+            List<String> taxIds = new List<String>();
+
+            _connectionString = "server=" + _databaseServer + ";" +
+                          "Trusted_Connection=yes;" +
+                          "database=" + DADABASE_NAME +
+                          "connection timeout=30";
+
+            SqlConnection myConnection = new SqlConnection(_connectionString);
+
+            myConnection.Open();
+
+            DataSet ds = new DataSet();
+
+            using (SqlConnection c = new SqlConnection(_connectionString))
+            {
+                using (var adapter = new SqlDataAdapter("CrawlerTotals", c))
+                {
+                    adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    adapter.Fill(ds);
+                }
+
+            }
+            return ds;
         }
 
         public string DatabaseServer
