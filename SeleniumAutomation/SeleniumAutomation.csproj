@@ -152,6 +152,12 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Tax.Automation.UI.Logging\Tax.Automation.UI.Logging.csproj">
+      <Project>{2a6bbf37-8e87-4689-8b95-146ca487682c}</Project>
+      <Name>Tax.Automation.UI.Logging</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

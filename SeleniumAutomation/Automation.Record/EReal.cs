@@ -10,6 +10,7 @@ using System.Net;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Tax.Automation.UI.Logging;
 
 namespace SeleniumAutomation.Automation.Record
 {
@@ -21,10 +22,12 @@ namespace SeleniumAutomation.Automation.Record
         private ERealPropertyDetailsFramework _eRealPropertyDetailsFramework;
         private HtmlAgilityPack.HtmlDocument _htmlDoc;
         private Hashtable _row;
+        private Logger _log;
 
-        public EReal(RemoteWebDriver driver, string parcelNumber): base(driver)
+        public EReal(RemoteWebDriver driver, string parcelNumber, Logger log) : base(driver)
         {
             _driver = driver;
+            _log = log;
             _htmlDoc = new HtmlAgilityPack.HtmlDocument();
             _parcelNumber = parcelNumber;
             _eRealTermsAndCondition = new ERealTermsAndConditionsFramework(_driver);
@@ -105,6 +108,7 @@ namespace SeleniumAutomation.Automation.Record
             }
             catch (Exception e)
             {
+                _log.LogError(e.ToString());
                 Console.WriteLine(e.ToString());
                 row["QueryResult"] = "ERROR";
                 _driver.Quit();
@@ -197,6 +201,7 @@ namespace SeleniumAutomation.Automation.Record
             }
             catch (Exception e)
             {
+                _log.LogError(e.ToString());
                 Console.WriteLine(e.ToString());
                  row["QueryResult"] = "ERROR";
                 _driver.Quit();

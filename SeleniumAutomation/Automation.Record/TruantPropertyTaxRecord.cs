@@ -12,6 +12,7 @@ using System.IO;
 using System.Drawing;
 using System.Drawing.Imaging;
 using SeleniumAutomation.Automation.Record.Utilities;
+using Tax.Automation.UI.Logging;
 
 namespace SeleniumAutomation.Automation.Record
 {
@@ -26,13 +27,17 @@ namespace SeleniumAutomation.Automation.Record
 
         private string _parcelNumber;
         private CaptchaSolver _captchaSolver;
+        private Logger _log;
 
         private string _userName;
         private string _password;
         private string _captchaBalance;
-        public TruantPropertyTaxRecord(RemoteWebDriver driver, string ParcelNumber) :
+        public TruantPropertyTaxRecord(RemoteWebDriver driver, string ParcelNumber, Logger log, string userName, string password) :
                base(driver)
         {
+            _userName = userName;
+            _password = password;
+            _log = log;
             _searchFramework = new SearchFramework(_driver);
             _accountParcelSummaryFramework = new AccountParcelSummaryFramework(_driver);
             _parcelNumber = ParcelNumber;
@@ -70,7 +75,7 @@ namespace SeleniumAutomation.Automation.Record
 
             _driver.Close();
             _driver.Quit();
-
+            _log.LogInfo("Proccessing TaxID : " + taxAccountNumber);
             return sb.ToString();
         }
 
@@ -155,8 +160,8 @@ namespace SeleniumAutomation.Automation.Record
 
         private void GoToAccountParcelSummaryPage()
         {
-
             _driver.Navigate().GoToUrl("http://info.kingcounty.gov/finance/treasury/propertytax/RealProperty.aspx?Parcel=" + _parcelNumber);
+            _log.LogInfo( "Proccessing Parcel For Real Property : " + _parcelNumber);
 
             bool captchaExists = false;
             try
@@ -166,30 +171,36 @@ namespace SeleniumAutomation.Automation.Record
             }
             catch (Exception e)
             {
-
+                _log.LogInfo("Begin Captcha Capture for Parcel : " + _parcelNumber);
             };
 
 
             if (captchaExists)
             {
-
-                //recaptcha_challenge_image
-                var arrScreen = _driver.GetScreenshot().AsByteArray;
-
-                using (var msScreen = new MemoryStream(arrScreen))
+                try
                 {
-                    var bmpScreen = new Bitmap(msScreen);
-                    var cap = _driver.FindElementById("recaptcha_challenge_image");
-                    var rcCrop = new Rectangle(cap.Location, cap.Size);
-                    Image imgCap = bmpScreen.Clone(rcCrop, bmpScreen.PixelFormat);
+                    //recaptcha_challenge_image
+                    var arrScreen = _driver.GetScreenshot().AsByteArray;
 
-                    using (var msCaptcha = new MemoryStream())
+                    using (var msScreen = new MemoryStream(arrScreen))
                     {
-                        imgCap.Save(msCaptcha, ImageFormat.Png);
-                        string captchaText = _captchaSolver.SolveCaptcha(msCaptcha);
-                        _captchaBalance = _captchaSolver.Balance;
-                        _searchFramework.CapatchaTextField().Type(captchaText);
+                        var bmpScreen = new Bitmap(msScreen);
+                        var cap = _driver.FindElementById("recaptcha_challenge_image");
+                        var rcCrop = new Rectangle(cap.Location, cap.Size);
+                        Image imgCap = bmpScreen.Clone(rcCrop, bmpScreen.PixelFormat);
+
+                        using (var msCaptcha = new MemoryStream())
+                        {
+                            imgCap.Save(msCaptcha, ImageFormat.Png);
+                            string captchaText = _captchaSolver.SolveCaptcha(msCaptcha);
+                            _captchaBalance = _captchaSolver.Balance;
+                            _searchFramework.CapatchaTextField().Type(captchaText);
+                        }
                     }
+                }
+                catch (Exception e)
+                {
+                    _log.LogError("Capcha Error : " + e.Message);
                 }
 
 
@@ -216,7 +227,10 @@ namespace SeleniumAutomation.Automation.Record
                     _searchFramework.SearchButton().Click();
 
                 }
-                catch (Exception ex) { Console.WriteLine("Cannot Click Search Button!"); }
+                catch (Exception ex) {
+                    Console.WriteLine("Cannot Click Search Button!");
+                    _log.LogError(ex.Message);
+                }
 
             }
         }

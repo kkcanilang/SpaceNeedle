@@ -116,6 +116,13 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.ExportCSVButton = new System.Windows.Forms.Button();
             this.StopButton = new System.Windows.Forms.Button();
+            this.ParcelOutputViewPanel = new System.Windows.Forms.Panel();
+            this.ActionButtomPanel = new System.Windows.Forms.Panel();
+            this.OutputViewPanel = new System.Windows.Forms.Panel();
+            this.OutPutTabPanel = new System.Windows.Forms.TabControl();
+            this.DinquentPanel = new System.Windows.Forms.TabPage();
+            this.ErrorTab = new System.Windows.Forms.TabPage();
+            this.HistoryTab = new System.Windows.Forms.TabPage();
             ((System.ComponentModel.ISupportInitialize)(this.taxParcelInformationBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.propertyTaxDataSet)).BeginInit();
             this.ConfigTab.SuspendLayout();
@@ -142,6 +149,11 @@
             this.panel9.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel7.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.ParcelOutputViewPanel.SuspendLayout();
+            this.ActionButtomPanel.SuspendLayout();
+            this.OutputViewPanel.SuspendLayout();
+            this.OutPutTabPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // taxParcelInformationBindingSource
@@ -159,10 +171,10 @@
             this.StartCrawlerButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.StartCrawlerButton.Enabled = false;
             this.StartCrawlerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.StartCrawlerButton.Location = new System.Drawing.Point(171, 520);
-            this.StartCrawlerButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.StartCrawlerButton.Location = new System.Drawing.Point(118, 42);
+            this.StartCrawlerButton.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.StartCrawlerButton.Name = "StartCrawlerButton";
-            this.StartCrawlerButton.Size = new System.Drawing.Size(140, 40);
+            this.StartCrawlerButton.Size = new System.Drawing.Size(210, 62);
             this.StartCrawlerButton.TabIndex = 3;
             this.StartCrawlerButton.Text = "Start";
             this.StartCrawlerButton.UseVisualStyleBackColor = true;
@@ -176,11 +188,11 @@
             // 
             this.ConfigTab.Controls.Add(this.SaveConfigCheckBox);
             this.ConfigTab.Controls.Add(this.MainPanel);
-            this.ConfigTab.Location = new System.Drawing.Point(4, 22);
-            this.ConfigTab.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.ConfigTab.Location = new System.Drawing.Point(4, 29);
+            this.ConfigTab.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.ConfigTab.Name = "ConfigTab";
-            this.ConfigTab.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.ConfigTab.Size = new System.Drawing.Size(897, 478);
+            this.ConfigTab.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.ConfigTab.Size = new System.Drawing.Size(1350, 742);
             this.ConfigTab.TabIndex = 0;
             this.ConfigTab.Text = "Conifg";
             this.ConfigTab.UseVisualStyleBackColor = true;
@@ -190,10 +202,10 @@
             this.SaveConfigCheckBox.AutoSize = true;
             this.SaveConfigCheckBox.Checked = true;
             this.SaveConfigCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.SaveConfigCheckBox.Location = new System.Drawing.Point(6, 455);
-            this.SaveConfigCheckBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.SaveConfigCheckBox.Location = new System.Drawing.Point(9, 700);
+            this.SaveConfigCheckBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.SaveConfigCheckBox.Name = "SaveConfigCheckBox";
-            this.SaveConfigCheckBox.Size = new System.Drawing.Size(114, 17);
+            this.SaveConfigCheckBox.Size = new System.Drawing.Size(166, 24);
             this.SaveConfigCheckBox.TabIndex = 4;
             this.SaveConfigCheckBox.Text = "Save Cong Editing";
             this.SaveConfigCheckBox.UseVisualStyleBackColor = true;
@@ -207,10 +219,10 @@
             this.MainPanel.Controls.Add(this.OutputPanel);
             this.MainPanel.Controls.Add(this.CaptchaAccountInfoPanel);
             this.MainPanel.Controls.Add(this.CrawlerConfigPanel);
-            this.MainPanel.Location = new System.Drawing.Point(-4, -3);
-            this.MainPanel.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.MainPanel.Location = new System.Drawing.Point(-6, -5);
+            this.MainPanel.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(906, 270);
+            this.MainPanel.Size = new System.Drawing.Size(1359, 415);
             this.MainPanel.TabIndex = 3;
             // 
             // OutputPanel
@@ -219,10 +231,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.OutputPanel.Controls.Add(this.richTextBox1);
-            this.OutputPanel.Location = new System.Drawing.Point(463, 16);
-            this.OutputPanel.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.OutputPanel.Location = new System.Drawing.Point(694, 25);
+            this.OutputPanel.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.OutputPanel.Name = "OutputPanel";
-            this.OutputPanel.Size = new System.Drawing.Size(433, 240);
+            this.OutputPanel.Size = new System.Drawing.Size(650, 369);
             this.OutputPanel.TabIndex = 2;
             // 
             // richTextBox1
@@ -230,10 +242,10 @@
             this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBox1.Location = new System.Drawing.Point(3, 10);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.richTextBox1.Location = new System.Drawing.Point(4, 15);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(429, 228);
+            this.richTextBox1.Size = new System.Drawing.Size(642, 349);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
             // 
@@ -243,10 +255,10 @@
             this.CaptchaAccountInfoPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.CaptchaAccountInfoPanel.Controls.Add(this.panel2);
             this.CaptchaAccountInfoPanel.Controls.Add(this.panel1);
-            this.CaptchaAccountInfoPanel.Location = new System.Drawing.Point(10, 151);
-            this.CaptchaAccountInfoPanel.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.CaptchaAccountInfoPanel.Location = new System.Drawing.Point(15, 232);
+            this.CaptchaAccountInfoPanel.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.CaptchaAccountInfoPanel.Name = "CaptchaAccountInfoPanel";
-            this.CaptchaAccountInfoPanel.Size = new System.Drawing.Size(434, 105);
+            this.CaptchaAccountInfoPanel.Size = new System.Drawing.Size(649, 159);
             this.CaptchaAccountInfoPanel.TabIndex = 1;
             // 
             // panel2
@@ -255,10 +267,10 @@
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.PasswordTextField);
             this.panel2.Controls.Add(this.PasswordLabel);
-            this.panel2.Location = new System.Drawing.Point(15, 53);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.panel2.Location = new System.Drawing.Point(22, 82);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(405, 37);
+            this.panel2.Size = new System.Drawing.Size(606, 56);
             this.panel2.TabIndex = 2;
             // 
             // PasswordTextField
@@ -267,10 +279,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.PasswordTextField.Enabled = false;
-            this.PasswordTextField.Location = new System.Drawing.Point(139, 9);
-            this.PasswordTextField.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.PasswordTextField.Location = new System.Drawing.Point(208, 14);
+            this.PasswordTextField.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.PasswordTextField.Name = "PasswordTextField";
-            this.PasswordTextField.Size = new System.Drawing.Size(255, 20);
+            this.PasswordTextField.Size = new System.Drawing.Size(380, 26);
             this.PasswordTextField.TabIndex = 2;
             this.PasswordTextField.UseSystemPasswordChar = true;
             this.PasswordTextField.TextChanged += new System.EventHandler(this.RequiredFieldsChanged);
@@ -278,10 +290,9 @@
             // PasswordLabel
             // 
             this.PasswordLabel.AutoSize = true;
-            this.PasswordLabel.Location = new System.Drawing.Point(11, 9);
-            this.PasswordLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.PasswordLabel.Location = new System.Drawing.Point(16, 14);
             this.PasswordLabel.Name = "PasswordLabel";
-            this.PasswordLabel.Size = new System.Drawing.Size(62, 13);
+            this.PasswordLabel.Size = new System.Drawing.Size(90, 20);
             this.PasswordLabel.TabIndex = 1;
             this.PasswordLabel.Text = "Password : ";
             // 
@@ -291,10 +302,10 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.UserNameTextfield);
             this.panel1.Controls.Add(this.UserNameLabel);
-            this.panel1.Location = new System.Drawing.Point(15, 12);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.panel1.Location = new System.Drawing.Point(22, 18);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(405, 37);
+            this.panel1.Size = new System.Drawing.Size(606, 56);
             this.panel1.TabIndex = 1;
             // 
             // UserNameTextfield
@@ -303,20 +314,19 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.UserNameTextfield.Enabled = false;
-            this.UserNameTextfield.Location = new System.Drawing.Point(139, 6);
-            this.UserNameTextfield.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.UserNameTextfield.Location = new System.Drawing.Point(208, 9);
+            this.UserNameTextfield.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.UserNameTextfield.Name = "UserNameTextfield";
-            this.UserNameTextfield.Size = new System.Drawing.Size(255, 20);
+            this.UserNameTextfield.Size = new System.Drawing.Size(380, 26);
             this.UserNameTextfield.TabIndex = 1;
             this.UserNameTextfield.TextChanged += new System.EventHandler(this.RequiredFieldsChanged);
             // 
             // UserNameLabel
             // 
             this.UserNameLabel.AutoSize = true;
-            this.UserNameLabel.Location = new System.Drawing.Point(11, 10);
-            this.UserNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.UserNameLabel.Location = new System.Drawing.Point(16, 15);
             this.UserNameLabel.Name = "UserNameLabel";
-            this.UserNameLabel.Size = new System.Drawing.Size(66, 13);
+            this.UserNameLabel.Size = new System.Drawing.Size(97, 20);
             this.UserNameLabel.TabIndex = 0;
             this.UserNameLabel.Text = "User Name :";
             // 
@@ -326,10 +336,10 @@
             this.CrawlerConfigPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.CrawlerConfigPanel.Controls.Add(this.DriverFolderPanel);
             this.CrawlerConfigPanel.Controls.Add(this.DatabaseNamePanel);
-            this.CrawlerConfigPanel.Location = new System.Drawing.Point(10, 16);
-            this.CrawlerConfigPanel.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.CrawlerConfigPanel.Location = new System.Drawing.Point(15, 25);
+            this.CrawlerConfigPanel.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.CrawlerConfigPanel.Name = "CrawlerConfigPanel";
-            this.CrawlerConfigPanel.Size = new System.Drawing.Size(434, 112);
+            this.CrawlerConfigPanel.Size = new System.Drawing.Size(649, 170);
             this.CrawlerConfigPanel.TabIndex = 0;
             // 
             // DriverFolderPanel
@@ -338,10 +348,10 @@
             this.DriverFolderPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.DriverFolderPanel.Controls.Add(this.DriverFolderNameTextField);
             this.DriverFolderPanel.Controls.Add(this.DriverFolderLabel);
-            this.DriverFolderPanel.Location = new System.Drawing.Point(15, 51);
-            this.DriverFolderPanel.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.DriverFolderPanel.Location = new System.Drawing.Point(22, 78);
+            this.DriverFolderPanel.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.DriverFolderPanel.Name = "DriverFolderPanel";
-            this.DriverFolderPanel.Size = new System.Drawing.Size(405, 37);
+            this.DriverFolderPanel.Size = new System.Drawing.Size(606, 56);
             this.DriverFolderPanel.TabIndex = 1;
             // 
             // DriverFolderNameTextField
@@ -350,20 +360,19 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DriverFolderNameTextField.Enabled = false;
-            this.DriverFolderNameTextField.Location = new System.Drawing.Point(139, 9);
-            this.DriverFolderNameTextField.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.DriverFolderNameTextField.Location = new System.Drawing.Point(208, 14);
+            this.DriverFolderNameTextField.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.DriverFolderNameTextField.Name = "DriverFolderNameTextField";
-            this.DriverFolderNameTextField.Size = new System.Drawing.Size(255, 20);
+            this.DriverFolderNameTextField.Size = new System.Drawing.Size(380, 26);
             this.DriverFolderNameTextField.TabIndex = 2;
             this.DriverFolderNameTextField.TextChanged += new System.EventHandler(this.RequiredFieldsChanged);
             // 
             // DriverFolderLabel
             // 
             this.DriverFolderLabel.AutoSize = true;
-            this.DriverFolderLabel.Location = new System.Drawing.Point(11, 9);
-            this.DriverFolderLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.DriverFolderLabel.Location = new System.Drawing.Point(16, 14);
             this.DriverFolderLabel.Name = "DriverFolderLabel";
-            this.DriverFolderLabel.Size = new System.Drawing.Size(76, 13);
+            this.DriverFolderLabel.Size = new System.Drawing.Size(111, 20);
             this.DriverFolderLabel.TabIndex = 1;
             this.DriverFolderLabel.Text = "Driver Folder : ";
             // 
@@ -373,10 +382,10 @@
             this.DatabaseNamePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.DatabaseNamePanel.Controls.Add(this.DatabaseServerNameTextfield);
             this.DatabaseNamePanel.Controls.Add(this.DatabaseServerLabel);
-            this.DatabaseNamePanel.Location = new System.Drawing.Point(15, 10);
-            this.DatabaseNamePanel.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.DatabaseNamePanel.Location = new System.Drawing.Point(22, 15);
+            this.DatabaseNamePanel.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.DatabaseNamePanel.Name = "DatabaseNamePanel";
-            this.DatabaseNamePanel.Size = new System.Drawing.Size(405, 37);
+            this.DatabaseNamePanel.Size = new System.Drawing.Size(606, 56);
             this.DatabaseNamePanel.TabIndex = 0;
             // 
             // DatabaseServerNameTextfield
@@ -384,10 +393,10 @@
             this.DatabaseServerNameTextfield.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DatabaseServerNameTextfield.Enabled = false;
-            this.DatabaseServerNameTextfield.Location = new System.Drawing.Point(139, 6);
-            this.DatabaseServerNameTextfield.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.DatabaseServerNameTextfield.Location = new System.Drawing.Point(208, 9);
+            this.DatabaseServerNameTextfield.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.DatabaseServerNameTextfield.Name = "DatabaseServerNameTextfield";
-            this.DatabaseServerNameTextfield.Size = new System.Drawing.Size(255, 20);
+            this.DatabaseServerNameTextfield.Size = new System.Drawing.Size(380, 26);
             this.DatabaseServerNameTextfield.TabIndex = 1;
             this.DatabaseServerNameTextfield.Text = ".";
             this.DatabaseServerNameTextfield.TextChanged += new System.EventHandler(this.DatabaseName_Change);
@@ -395,21 +404,20 @@
             // DatabaseServerLabel
             // 
             this.DatabaseServerLabel.AutoSize = true;
-            this.DatabaseServerLabel.Location = new System.Drawing.Point(11, 10);
-            this.DatabaseServerLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.DatabaseServerLabel.Location = new System.Drawing.Point(16, 15);
             this.DatabaseServerLabel.Name = "DatabaseServerLabel";
-            this.DatabaseServerLabel.Size = new System.Drawing.Size(124, 13);
+            this.DatabaseServerLabel.Size = new System.Drawing.Size(183, 20);
             this.DatabaseServerLabel.TabIndex = 0;
             this.DatabaseServerLabel.Text = "Database Server Name :";
             // 
             // AvailableParcelTab
             // 
             this.AvailableParcelTab.Controls.Add(this.panel3);
-            this.AvailableParcelTab.Location = new System.Drawing.Point(4, 22);
-            this.AvailableParcelTab.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.AvailableParcelTab.Location = new System.Drawing.Point(4, 29);
+            this.AvailableParcelTab.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.AvailableParcelTab.Name = "AvailableParcelTab";
-            this.AvailableParcelTab.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.AvailableParcelTab.Size = new System.Drawing.Size(897, 478);
+            this.AvailableParcelTab.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.AvailableParcelTab.Size = new System.Drawing.Size(1350, 742);
             this.AvailableParcelTab.TabIndex = 1;
             this.AvailableParcelTab.Text = "Available Parcels";
             this.AvailableParcelTab.UseVisualStyleBackColor = true;
@@ -422,10 +430,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.AllTaxInformationDataGrid);
-            this.panel3.Location = new System.Drawing.Point(3, 6);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.panel3.Location = new System.Drawing.Point(4, 9);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(892, 313);
+            this.panel3.Size = new System.Drawing.Size(1337, 480);
             this.panel3.TabIndex = 0;
             // 
             // AllTaxInformationDataGrid
@@ -478,11 +486,11 @@
             this.isDilinquentDataGridViewCheckBoxColumn,
             this.cachedURLDataGridViewTextBoxColumn});
             this.AllTaxInformationDataGrid.DataSource = this.taxParcelInformationBindingSource;
-            this.AllTaxInformationDataGrid.Location = new System.Drawing.Point(3, 3);
-            this.AllTaxInformationDataGrid.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.AllTaxInformationDataGrid.Location = new System.Drawing.Point(4, 5);
+            this.AllTaxInformationDataGrid.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.AllTaxInformationDataGrid.Name = "AllTaxInformationDataGrid";
             this.AllTaxInformationDataGrid.RowTemplate.Height = 24;
-            this.AllTaxInformationDataGrid.Size = new System.Drawing.Size(885, 305);
+            this.AllTaxInformationDataGrid.Size = new System.Drawing.Size(1328, 469);
             this.AllTaxInformationDataGrid.TabIndex = 0;
             // 
             // taxParcelInformationIdDataGridViewTextBoxColumn
@@ -492,7 +500,7 @@
             this.taxParcelInformationIdDataGridViewTextBoxColumn.HeaderText = "TaxParcelInformationId";
             this.taxParcelInformationIdDataGridViewTextBoxColumn.Name = "taxParcelInformationIdDataGridViewTextBoxColumn";
             this.taxParcelInformationIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.taxParcelInformationIdDataGridViewTextBoxColumn.Width = 141;
+            this.taxParcelInformationIdDataGridViewTextBoxColumn.Width = 209;
             // 
             // firstNameDataGridViewTextBoxColumn
             // 
@@ -500,7 +508,7 @@
             this.firstNameDataGridViewTextBoxColumn.FillWeight = 305.1933F;
             this.firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
             this.firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
-            this.firstNameDataGridViewTextBoxColumn.Width = 79;
+            this.firstNameDataGridViewTextBoxColumn.Width = 118;
             // 
             // lastNameDataGridViewTextBoxColumn
             // 
@@ -508,7 +516,7 @@
             this.lastNameDataGridViewTextBoxColumn.FillWeight = 278.7261F;
             this.lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
             this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
-            this.lastNameDataGridViewTextBoxColumn.Width = 80;
+            this.lastNameDataGridViewTextBoxColumn.Width = 118;
             // 
             // mailingStreetOneDataGridViewTextBoxColumn
             // 
@@ -516,7 +524,7 @@
             this.mailingStreetOneDataGridViewTextBoxColumn.FillWeight = 254.5867F;
             this.mailingStreetOneDataGridViewTextBoxColumn.HeaderText = "MailingStreetOne";
             this.mailingStreetOneDataGridViewTextBoxColumn.Name = "mailingStreetOneDataGridViewTextBoxColumn";
-            this.mailingStreetOneDataGridViewTextBoxColumn.Width = 113;
+            this.mailingStreetOneDataGridViewTextBoxColumn.Width = 168;
             // 
             // mailingStreetTwoDataGridViewTextBoxColumn
             // 
@@ -524,7 +532,7 @@
             this.mailingStreetTwoDataGridViewTextBoxColumn.FillWeight = 232.5704F;
             this.mailingStreetTwoDataGridViewTextBoxColumn.HeaderText = "MailingStreetTwo";
             this.mailingStreetTwoDataGridViewTextBoxColumn.Name = "mailingStreetTwoDataGridViewTextBoxColumn";
-            this.mailingStreetTwoDataGridViewTextBoxColumn.Width = 114;
+            this.mailingStreetTwoDataGridViewTextBoxColumn.Width = 167;
             // 
             // mailingStreetThreeDataGridViewTextBoxColumn
             // 
@@ -532,7 +540,7 @@
             this.mailingStreetThreeDataGridViewTextBoxColumn.FillWeight = 212.4905F;
             this.mailingStreetThreeDataGridViewTextBoxColumn.HeaderText = "MailingStreetThree";
             this.mailingStreetThreeDataGridViewTextBoxColumn.Name = "mailingStreetThreeDataGridViewTextBoxColumn";
-            this.mailingStreetThreeDataGridViewTextBoxColumn.Width = 121;
+            this.mailingStreetThreeDataGridViewTextBoxColumn.Width = 179;
             // 
             // mailingStateProvinceDataGridViewTextBoxColumn
             // 
@@ -540,7 +548,7 @@
             this.mailingStateProvinceDataGridViewTextBoxColumn.FillWeight = 194.1765F;
             this.mailingStateProvinceDataGridViewTextBoxColumn.HeaderText = "MailingStateProvince";
             this.mailingStateProvinceDataGridViewTextBoxColumn.Name = "mailingStateProvinceDataGridViewTextBoxColumn";
-            this.mailingStateProvinceDataGridViewTextBoxColumn.Width = 132;
+            this.mailingStateProvinceDataGridViewTextBoxColumn.Width = 193;
             // 
             // siteStreetDataGridViewTextBoxColumn
             // 
@@ -548,7 +556,7 @@
             this.siteStreetDataGridViewTextBoxColumn.FillWeight = 177.4733F;
             this.siteStreetDataGridViewTextBoxColumn.HeaderText = "SiteStreet";
             this.siteStreetDataGridViewTextBoxColumn.Name = "siteStreetDataGridViewTextBoxColumn";
-            this.siteStreetDataGridViewTextBoxColumn.Width = 78;
+            this.siteStreetDataGridViewTextBoxColumn.Width = 117;
             // 
             // siteStreetThreeDataGridViewTextBoxColumn
             // 
@@ -556,7 +564,7 @@
             this.siteStreetThreeDataGridViewTextBoxColumn.FillWeight = 162.2392F;
             this.siteStreetThreeDataGridViewTextBoxColumn.HeaderText = "SiteStreetThree";
             this.siteStreetThreeDataGridViewTextBoxColumn.Name = "siteStreetThreeDataGridViewTextBoxColumn";
-            this.siteStreetThreeDataGridViewTextBoxColumn.Width = 106;
+            this.siteStreetThreeDataGridViewTextBoxColumn.Width = 158;
             // 
             // siteCityDataGridViewTextBoxColumn
             // 
@@ -564,7 +572,7 @@
             this.siteCityDataGridViewTextBoxColumn.FillWeight = 148.3449F;
             this.siteCityDataGridViewTextBoxColumn.HeaderText = "SiteCity";
             this.siteCityDataGridViewTextBoxColumn.Name = "siteCityDataGridViewTextBoxColumn";
-            this.siteCityDataGridViewTextBoxColumn.Width = 67;
+            this.siteCityDataGridViewTextBoxColumn.Width = 99;
             // 
             // siteStateProvinceDataGridViewTextBoxColumn
             // 
@@ -572,7 +580,7 @@
             this.siteStateProvinceDataGridViewTextBoxColumn.FillWeight = 135.6726F;
             this.siteStateProvinceDataGridViewTextBoxColumn.HeaderText = "SiteStateProvince";
             this.siteStateProvinceDataGridViewTextBoxColumn.Name = "siteStateProvinceDataGridViewTextBoxColumn";
-            this.siteStateProvinceDataGridViewTextBoxColumn.Width = 117;
+            this.siteStateProvinceDataGridViewTextBoxColumn.Width = 172;
             // 
             // siteZipPostalCodeDataGridViewTextBoxColumn
             // 
@@ -580,7 +588,7 @@
             this.siteZipPostalCodeDataGridViewTextBoxColumn.FillWeight = 124.1149F;
             this.siteZipPostalCodeDataGridViewTextBoxColumn.HeaderText = "SiteZipPostalCode";
             this.siteZipPostalCodeDataGridViewTextBoxColumn.Name = "siteZipPostalCodeDataGridViewTextBoxColumn";
-            this.siteZipPostalCodeDataGridViewTextBoxColumn.Width = 119;
+            this.siteZipPostalCodeDataGridViewTextBoxColumn.Width = 177;
             // 
             // yearBuiltDataGridViewTextBoxColumn
             // 
@@ -588,7 +596,7 @@
             this.yearBuiltDataGridViewTextBoxColumn.FillWeight = 113.5737F;
             this.yearBuiltDataGridViewTextBoxColumn.HeaderText = "YearBuilt";
             this.yearBuiltDataGridViewTextBoxColumn.Name = "yearBuiltDataGridViewTextBoxColumn";
-            this.yearBuiltDataGridViewTextBoxColumn.Width = 74;
+            this.yearBuiltDataGridViewTextBoxColumn.Width = 110;
             // 
             // effectiveYearDataGridViewTextBoxColumn
             // 
@@ -596,7 +604,7 @@
             this.effectiveYearDataGridViewTextBoxColumn.FillWeight = 103.9596F;
             this.effectiveYearDataGridViewTextBoxColumn.HeaderText = "EffectiveYear";
             this.effectiveYearDataGridViewTextBoxColumn.Name = "effectiveYearDataGridViewTextBoxColumn";
-            this.effectiveYearDataGridViewTextBoxColumn.Width = 96;
+            this.effectiveYearDataGridViewTextBoxColumn.Width = 141;
             // 
             // lotSquareFootDataGridViewTextBoxColumn
             // 
@@ -604,7 +612,7 @@
             this.lotSquareFootDataGridViewTextBoxColumn.FillWeight = 95.19106F;
             this.lotSquareFootDataGridViewTextBoxColumn.HeaderText = "LotSquareFoot";
             this.lotSquareFootDataGridViewTextBoxColumn.Name = "lotSquareFootDataGridViewTextBoxColumn";
-            this.lotSquareFootDataGridViewTextBoxColumn.Width = 102;
+            this.lotSquareFootDataGridViewTextBoxColumn.Width = 153;
             // 
             // buildingSquareFootDataGridViewTextBoxColumn
             // 
@@ -612,7 +620,7 @@
             this.buildingSquareFootDataGridViewTextBoxColumn.FillWeight = 87.19371F;
             this.buildingSquareFootDataGridViewTextBoxColumn.HeaderText = "BuildingSquareFoot";
             this.buildingSquareFootDataGridViewTextBoxColumn.Name = "buildingSquareFootDataGridViewTextBoxColumn";
-            this.buildingSquareFootDataGridViewTextBoxColumn.Width = 124;
+            this.buildingSquareFootDataGridViewTextBoxColumn.Width = 186;
             // 
             // lastSaleDateDataGridViewTextBoxColumn
             // 
@@ -620,7 +628,7 @@
             this.lastSaleDateDataGridViewTextBoxColumn.FillWeight = 79.89972F;
             this.lastSaleDateDataGridViewTextBoxColumn.HeaderText = "LastSaleDate";
             this.lastSaleDateDataGridViewTextBoxColumn.Name = "lastSaleDateDataGridViewTextBoxColumn";
-            this.lastSaleDateDataGridViewTextBoxColumn.Width = 96;
+            this.lastSaleDateDataGridViewTextBoxColumn.Width = 143;
             // 
             // numberOfUnitsDataGridViewTextBoxColumn
             // 
@@ -628,7 +636,7 @@
             this.numberOfUnitsDataGridViewTextBoxColumn.FillWeight = 73.24728F;
             this.numberOfUnitsDataGridViewTextBoxColumn.HeaderText = "NumberOfUnits";
             this.numberOfUnitsDataGridViewTextBoxColumn.Name = "numberOfUnitsDataGridViewTextBoxColumn";
-            this.numberOfUnitsDataGridViewTextBoxColumn.Width = 104;
+            this.numberOfUnitsDataGridViewTextBoxColumn.Width = 155;
             // 
             // ownerTwoDataGridViewTextBoxColumn
             // 
@@ -636,7 +644,7 @@
             this.ownerTwoDataGridViewTextBoxColumn.FillWeight = 67.17989F;
             this.ownerTwoDataGridViewTextBoxColumn.HeaderText = "OwnerTwo";
             this.ownerTwoDataGridViewTextBoxColumn.Name = "ownerTwoDataGridViewTextBoxColumn";
-            this.ownerTwoDataGridViewTextBoxColumn.Width = 84;
+            this.ownerTwoDataGridViewTextBoxColumn.Width = 120;
             // 
             // assessedValueTotalDataGridViewTextBoxColumn
             // 
@@ -644,7 +652,7 @@
             this.assessedValueTotalDataGridViewTextBoxColumn.FillWeight = 61.64615F;
             this.assessedValueTotalDataGridViewTextBoxColumn.HeaderText = "AssessedValueTotal";
             this.assessedValueTotalDataGridViewTextBoxColumn.Name = "assessedValueTotalDataGridViewTextBoxColumn";
-            this.assessedValueTotalDataGridViewTextBoxColumn.Width = 128;
+            this.assessedValueTotalDataGridViewTextBoxColumn.Width = 191;
             // 
             // assessedValueImprovedDataGridViewTextBoxColumn
             // 
@@ -652,7 +660,7 @@
             this.assessedValueImprovedDataGridViewTextBoxColumn.FillWeight = 56.59911F;
             this.assessedValueImprovedDataGridViewTextBoxColumn.HeaderText = "AssessedValueImproved";
             this.assessedValueImprovedDataGridViewTextBoxColumn.Name = "assessedValueImprovedDataGridViewTextBoxColumn";
-            this.assessedValueImprovedDataGridViewTextBoxColumn.Width = 148;
+            this.assessedValueImprovedDataGridViewTextBoxColumn.Width = 222;
             // 
             // assessedValueLandDataGridViewTextBoxColumn
             // 
@@ -660,7 +668,7 @@
             this.assessedValueLandDataGridViewTextBoxColumn.FillWeight = 51.99594F;
             this.assessedValueLandDataGridViewTextBoxColumn.HeaderText = "AssessedValueLand";
             this.assessedValueLandDataGridViewTextBoxColumn.Name = "assessedValueLandDataGridViewTextBoxColumn";
-            this.assessedValueLandDataGridViewTextBoxColumn.Width = 128;
+            this.assessedValueLandDataGridViewTextBoxColumn.Width = 192;
             // 
             // zoningCodeDataGridViewTextBoxColumn
             // 
@@ -668,7 +676,7 @@
             this.zoningCodeDataGridViewTextBoxColumn.FillWeight = 47.79765F;
             this.zoningCodeDataGridViewTextBoxColumn.HeaderText = "ZoningCode";
             this.zoningCodeDataGridViewTextBoxColumn.Name = "zoningCodeDataGridViewTextBoxColumn";
-            this.zoningCodeDataGridViewTextBoxColumn.Width = 90;
+            this.zoningCodeDataGridViewTextBoxColumn.Width = 132;
             // 
             // lastSalesPriceDataGridViewTextBoxColumn
             // 
@@ -676,7 +684,7 @@
             this.lastSalesPriceDataGridViewTextBoxColumn.FillWeight = 43.96859F;
             this.lastSalesPriceDataGridViewTextBoxColumn.HeaderText = "LastSalesPrice";
             this.lastSalesPriceDataGridViewTextBoxColumn.Name = "lastSalesPriceDataGridViewTextBoxColumn";
-            this.lastSalesPriceDataGridViewTextBoxColumn.Width = 102;
+            this.lastSalesPriceDataGridViewTextBoxColumn.Width = 151;
             // 
             // taxIdDataGridViewTextBoxColumn
             // 
@@ -684,7 +692,7 @@
             this.taxIdDataGridViewTextBoxColumn.FillWeight = 40.47629F;
             this.taxIdDataGridViewTextBoxColumn.HeaderText = "TaxId";
             this.taxIdDataGridViewTextBoxColumn.Name = "taxIdDataGridViewTextBoxColumn";
-            this.taxIdDataGridViewTextBoxColumn.Width = 59;
+            this.taxIdDataGridViewTextBoxColumn.Width = 84;
             // 
             // landUseDataGridViewTextBoxColumn
             // 
@@ -692,7 +700,7 @@
             this.landUseDataGridViewTextBoxColumn.FillWeight = 37.29115F;
             this.landUseDataGridViewTextBoxColumn.HeaderText = "LandUse";
             this.landUseDataGridViewTextBoxColumn.Name = "landUseDataGridViewTextBoxColumn";
-            this.landUseDataGridViewTextBoxColumn.Width = 75;
+            this.landUseDataGridViewTextBoxColumn.Width = 110;
             // 
             // createdDateDataGridViewTextBoxColumn
             // 
@@ -700,7 +708,7 @@
             this.createdDateDataGridViewTextBoxColumn.FillWeight = 34.38616F;
             this.createdDateDataGridViewTextBoxColumn.HeaderText = "CreatedDate";
             this.createdDateDataGridViewTextBoxColumn.Name = "createdDateDataGridViewTextBoxColumn";
-            this.createdDateDataGridViewTextBoxColumn.Width = 92;
+            this.createdDateDataGridViewTextBoxColumn.Width = 137;
             // 
             // lastModifiedDataGridViewTextBoxColumn
             // 
@@ -708,7 +716,7 @@
             this.lastModifiedDataGridViewTextBoxColumn.FillWeight = 31.73663F;
             this.lastModifiedDataGridViewTextBoxColumn.HeaderText = "LastModified";
             this.lastModifiedDataGridViewTextBoxColumn.Name = "lastModifiedDataGridViewTextBoxColumn";
-            this.lastModifiedDataGridViewTextBoxColumn.Width = 92;
+            this.lastModifiedDataGridViewTextBoxColumn.Width = 136;
             // 
             // paymentStatusDataGridViewTextBoxColumn
             // 
@@ -716,7 +724,7 @@
             this.paymentStatusDataGridViewTextBoxColumn.FillWeight = 29.32015F;
             this.paymentStatusDataGridViewTextBoxColumn.HeaderText = "PaymentStatus";
             this.paymentStatusDataGridViewTextBoxColumn.Name = "paymentStatusDataGridViewTextBoxColumn";
-            this.paymentStatusDataGridViewTextBoxColumn.Width = 103;
+            this.paymentStatusDataGridViewTextBoxColumn.Width = 154;
             // 
             // statusDataGridViewTextBoxColumn
             // 
@@ -724,7 +732,7 @@
             this.statusDataGridViewTextBoxColumn.FillWeight = 27.1162F;
             this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
             this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
-            this.statusDataGridViewTextBoxColumn.Width = 62;
+            this.statusDataGridViewTextBoxColumn.Width = 92;
             // 
             // isActiveDataGridViewCheckBoxColumn
             // 
@@ -732,7 +740,7 @@
             this.isActiveDataGridViewCheckBoxColumn.FillWeight = 25.10608F;
             this.isActiveDataGridViewCheckBoxColumn.HeaderText = "IsActive";
             this.isActiveDataGridViewCheckBoxColumn.Name = "isActiveDataGridViewCheckBoxColumn";
-            this.isActiveDataGridViewCheckBoxColumn.Width = 51;
+            this.isActiveDataGridViewCheckBoxColumn.Width = 71;
             // 
             // queryResultDataGridViewTextBoxColumn
             // 
@@ -740,7 +748,7 @@
             this.queryResultDataGridViewTextBoxColumn.FillWeight = 23.27277F;
             this.queryResultDataGridViewTextBoxColumn.HeaderText = "QueryResult";
             this.queryResultDataGridViewTextBoxColumn.Name = "queryResultDataGridViewTextBoxColumn";
-            this.queryResultDataGridViewTextBoxColumn.Width = 90;
+            this.queryResultDataGridViewTextBoxColumn.Width = 133;
             // 
             // queryTimeDataGridViewTextBoxColumn
             // 
@@ -748,7 +756,7 @@
             this.queryTimeDataGridViewTextBoxColumn.FillWeight = 21.60069F;
             this.queryTimeDataGridViewTextBoxColumn.HeaderText = "QueryTime";
             this.queryTimeDataGridViewTextBoxColumn.Name = "queryTimeDataGridViewTextBoxColumn";
-            this.queryTimeDataGridViewTextBoxColumn.Width = 83;
+            this.queryTimeDataGridViewTextBoxColumn.Width = 121;
             // 
             // mailingCityDataGridViewTextBoxColumn
             // 
@@ -756,7 +764,7 @@
             this.mailingCityDataGridViewTextBoxColumn.FillWeight = 20.07567F;
             this.mailingCityDataGridViewTextBoxColumn.HeaderText = "MailingCity";
             this.mailingCityDataGridViewTextBoxColumn.Name = "mailingCityDataGridViewTextBoxColumn";
-            this.mailingCityDataGridViewTextBoxColumn.Width = 82;
+            this.mailingCityDataGridViewTextBoxColumn.Width = 120;
             // 
             // mailingZipDataGridViewTextBoxColumn
             // 
@@ -764,7 +772,7 @@
             this.mailingZipDataGridViewTextBoxColumn.FillWeight = 18.68478F;
             this.mailingZipDataGridViewTextBoxColumn.HeaderText = "MailingZip";
             this.mailingZipDataGridViewTextBoxColumn.Name = "mailingZipDataGridViewTextBoxColumn";
-            this.mailingZipDataGridViewTextBoxColumn.Width = 80;
+            this.mailingZipDataGridViewTextBoxColumn.Width = 116;
             // 
             // rawTaxIdDataGridViewTextBoxColumn
             // 
@@ -772,7 +780,7 @@
             this.rawTaxIdDataGridViewTextBoxColumn.FillWeight = 17.41621F;
             this.rawTaxIdDataGridViewTextBoxColumn.HeaderText = "RawTaxId";
             this.rawTaxIdDataGridViewTextBoxColumn.Name = "rawTaxIdDataGridViewTextBoxColumn";
-            this.rawTaxIdDataGridViewTextBoxColumn.Width = 81;
+            this.rawTaxIdDataGridViewTextBoxColumn.Width = 116;
             // 
             // isDilinquentDataGridViewCheckBoxColumn
             // 
@@ -780,7 +788,7 @@
             this.isDilinquentDataGridViewCheckBoxColumn.FillWeight = 16.25922F;
             this.isDilinquentDataGridViewCheckBoxColumn.HeaderText = "IsDilinquent";
             this.isDilinquentDataGridViewCheckBoxColumn.Name = "isDilinquentDataGridViewCheckBoxColumn";
-            this.isDilinquentDataGridViewCheckBoxColumn.Width = 68;
+            this.isDilinquentDataGridViewCheckBoxColumn.Width = 99;
             // 
             // cachedURLDataGridViewTextBoxColumn
             // 
@@ -788,7 +796,7 @@
             this.cachedURLDataGridViewTextBoxColumn.FillWeight = 15.20399F;
             this.cachedURLDataGridViewTextBoxColumn.HeaderText = "CachedURL";
             this.cachedURLDataGridViewTextBoxColumn.Name = "cachedURLDataGridViewTextBoxColumn";
-            this.cachedURLDataGridViewTextBoxColumn.Width = 91;
+            this.cachedURLDataGridViewTextBoxColumn.Width = 133;
             // 
             // MainTab
             // 
@@ -798,21 +806,20 @@
             this.MainTab.Controls.Add(this.DashboardTab);
             this.MainTab.Controls.Add(this.ConfigTab);
             this.MainTab.Controls.Add(this.AvailableParcelTab);
-            this.MainTab.Location = new System.Drawing.Point(10, 10);
-            this.MainTab.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.MainTab.Location = new System.Drawing.Point(15, 15);
+            this.MainTab.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.MainTab.Name = "MainTab";
             this.MainTab.SelectedIndex = 0;
-            this.MainTab.Size = new System.Drawing.Size(905, 504);
+            this.MainTab.Size = new System.Drawing.Size(1358, 774);
             this.MainTab.TabIndex = 0;
             // 
             // DashboardTab
             // 
             this.DashboardTab.Controls.Add(this.panel4);
-            this.DashboardTab.Location = new System.Drawing.Point(4, 22);
-            this.DashboardTab.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DashboardTab.Location = new System.Drawing.Point(4, 29);
             this.DashboardTab.Name = "DashboardTab";
-            this.DashboardTab.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.DashboardTab.Size = new System.Drawing.Size(897, 478);
+            this.DashboardTab.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.DashboardTab.Size = new System.Drawing.Size(1350, 741);
             this.DashboardTab.TabIndex = 2;
             this.DashboardTab.Text = "Cralwer Dash Board";
             this.DashboardTab.UseVisualStyleBackColor = true;
@@ -825,10 +832,9 @@
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.panel6);
             this.panel4.Controls.Add(this.panel5);
-            this.panel4.Location = new System.Drawing.Point(5, 5);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel4.Location = new System.Drawing.Point(8, 8);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(892, 475);
+            this.panel4.Size = new System.Drawing.Size(1337, 729);
             this.panel4.TabIndex = 0;
             // 
             // panel6
@@ -844,19 +850,17 @@
             this.panel6.Controls.Add(this.panel7);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel6.Location = new System.Drawing.Point(0, 0);
-            this.panel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(288, 473);
+            this.panel6.Size = new System.Drawing.Size(431, 727);
             this.panel6.TabIndex = 1;
             // 
             // panel14
             // 
             this.panel14.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel14.Controls.Add(this.TotalCaptchaCreditText);
-            this.panel14.Location = new System.Drawing.Point(3, 412);
-            this.panel14.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel14.Location = new System.Drawing.Point(4, 634);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(283, 56);
+            this.panel14.Size = new System.Drawing.Size(422, 84);
             this.panel14.TabIndex = 7;
             // 
             // TotalCaptchaCreditText
@@ -864,10 +868,9 @@
             this.TotalCaptchaCreditText.AutoSize = true;
             this.TotalCaptchaCreditText.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TotalCaptchaCreditText.ForeColor = System.Drawing.Color.ForestGreen;
-            this.TotalCaptchaCreditText.Location = new System.Drawing.Point(56, 11);
-            this.TotalCaptchaCreditText.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.TotalCaptchaCreditText.Location = new System.Drawing.Point(84, 17);
             this.TotalCaptchaCreditText.Name = "TotalCaptchaCreditText";
-            this.TotalCaptchaCreditText.Size = new System.Drawing.Size(151, 31);
+            this.TotalCaptchaCreditText.Size = new System.Drawing.Size(220, 46);
             this.TotalCaptchaCreditText.TabIndex = 4;
             this.TotalCaptchaCreditText.Text = "[Total Text]";
             // 
@@ -875,20 +878,18 @@
             // 
             this.panel13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel13.Controls.Add(this.label4);
-            this.panel13.Location = new System.Drawing.Point(5, 354);
-            this.panel13.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel13.Location = new System.Drawing.Point(8, 545);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(282, 55);
+            this.panel13.Size = new System.Drawing.Size(422, 84);
             this.panel13.TabIndex = 6;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(9, 12);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(14, 18);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(279, 31);
+            this.label4.Size = new System.Drawing.Size(408, 46);
             this.label4.TabIndex = 3;
             this.label4.Text = "Total Captcha Credit :";
             // 
@@ -896,10 +897,9 @@
             // 
             this.panel12.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel12.Controls.Add(this.TotalCrawledErrorText);
-            this.panel12.Location = new System.Drawing.Point(5, 295);
-            this.panel12.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel12.Location = new System.Drawing.Point(8, 454);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(283, 56);
+            this.panel12.Size = new System.Drawing.Size(422, 84);
             this.panel12.TabIndex = 5;
             // 
             // TotalCrawledErrorText
@@ -907,10 +907,9 @@
             this.TotalCrawledErrorText.AutoSize = true;
             this.TotalCrawledErrorText.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TotalCrawledErrorText.ForeColor = System.Drawing.Color.ForestGreen;
-            this.TotalCrawledErrorText.Location = new System.Drawing.Point(53, 12);
-            this.TotalCrawledErrorText.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.TotalCrawledErrorText.Location = new System.Drawing.Point(80, 18);
             this.TotalCrawledErrorText.Name = "TotalCrawledErrorText";
-            this.TotalCrawledErrorText.Size = new System.Drawing.Size(151, 31);
+            this.TotalCrawledErrorText.Size = new System.Drawing.Size(220, 46);
             this.TotalCrawledErrorText.TabIndex = 3;
             this.TotalCrawledErrorText.Text = "[Total Text]";
             // 
@@ -918,20 +917,18 @@
             // 
             this.panel11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel11.Controls.Add(this.label3);
-            this.panel11.Location = new System.Drawing.Point(5, 237);
-            this.panel11.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel11.Location = new System.Drawing.Point(8, 365);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(282, 55);
+            this.panel11.Size = new System.Drawing.Size(422, 84);
             this.panel11.TabIndex = 4;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(9, 15);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(14, 23);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(248, 31);
+            this.label3.Size = new System.Drawing.Size(364, 46);
             this.label3.TabIndex = 2;
             this.label3.Text = "Total Crawl Errors :";
             // 
@@ -939,10 +936,9 @@
             // 
             this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel10.Controls.Add(this.TotalNotCrawledText);
-            this.panel10.Location = new System.Drawing.Point(5, 178);
-            this.panel10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel10.Location = new System.Drawing.Point(8, 274);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(283, 56);
+            this.panel10.Size = new System.Drawing.Size(422, 84);
             this.panel10.TabIndex = 3;
             // 
             // TotalNotCrawledText
@@ -950,10 +946,9 @@
             this.TotalNotCrawledText.AutoSize = true;
             this.TotalNotCrawledText.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TotalNotCrawledText.ForeColor = System.Drawing.Color.ForestGreen;
-            this.TotalNotCrawledText.Location = new System.Drawing.Point(53, 16);
-            this.TotalNotCrawledText.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.TotalNotCrawledText.Location = new System.Drawing.Point(80, 25);
             this.TotalNotCrawledText.Name = "TotalNotCrawledText";
-            this.TotalNotCrawledText.Size = new System.Drawing.Size(151, 31);
+            this.TotalNotCrawledText.Size = new System.Drawing.Size(220, 46);
             this.TotalNotCrawledText.TabIndex = 2;
             this.TotalNotCrawledText.Text = "[Total Text]";
             // 
@@ -961,20 +956,18 @@
             // 
             this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel9.Controls.Add(this.label2);
-            this.panel9.Location = new System.Drawing.Point(5, 120);
-            this.panel9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel9.Location = new System.Drawing.Point(8, 185);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(282, 55);
+            this.panel9.Size = new System.Drawing.Size(422, 84);
             this.panel9.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(10, 10);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(15, 15);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(247, 31);
+            this.label2.Size = new System.Drawing.Size(362, 46);
             this.label2.TabIndex = 1;
             this.label2.Text = "Total Not Crawled :";
             // 
@@ -982,10 +975,9 @@
             // 
             this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel8.Controls.Add(this.TotalCrawledText);
-            this.panel8.Location = new System.Drawing.Point(3, 61);
-            this.panel8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel8.Location = new System.Drawing.Point(4, 94);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(283, 56);
+            this.panel8.Size = new System.Drawing.Size(422, 84);
             this.panel8.TabIndex = 1;
             // 
             // TotalCrawledText
@@ -993,10 +985,9 @@
             this.TotalCrawledText.AutoSize = true;
             this.TotalCrawledText.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TotalCrawledText.ForeColor = System.Drawing.Color.ForestGreen;
-            this.TotalCrawledText.Location = new System.Drawing.Point(56, 10);
-            this.TotalCrawledText.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.TotalCrawledText.Location = new System.Drawing.Point(84, 15);
             this.TotalCrawledText.Name = "TotalCrawledText";
-            this.TotalCrawledText.Size = new System.Drawing.Size(151, 31);
+            this.TotalCrawledText.Size = new System.Drawing.Size(220, 46);
             this.TotalCrawledText.TabIndex = 1;
             this.TotalCrawledText.Text = "[Total Text]";
             // 
@@ -1004,20 +995,18 @@
             // 
             this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel7.Controls.Add(this.label1);
-            this.panel7.Location = new System.Drawing.Point(3, 3);
-            this.panel7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel7.Location = new System.Drawing.Point(4, 5);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(282, 55);
+            this.panel7.Size = new System.Drawing.Size(422, 84);
             this.panel7.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(40, 10);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(60, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(197, 31);
+            this.label1.Size = new System.Drawing.Size(288, 46);
             this.label1.TabIndex = 0;
             this.label1.Text = "Total Crawled :";
             // 
@@ -1027,20 +1016,20 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Location = new System.Drawing.Point(291, 0);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel5.Controls.Add(this.ParcelOutputViewPanel);
+            this.panel5.Location = new System.Drawing.Point(436, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(599, 474);
+            this.panel5.Size = new System.Drawing.Size(898, 727);
             this.panel5.TabIndex = 0;
             // 
             // ExportCSVButton
             // 
             this.ExportCSVButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.ExportCSVButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.ExportCSVButton.Location = new System.Drawing.Point(479, 520);
-            this.ExportCSVButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.ExportCSVButton.Location = new System.Drawing.Point(580, 42);
+            this.ExportCSVButton.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.ExportCSVButton.Name = "ExportCSVButton";
-            this.ExportCSVButton.Size = new System.Drawing.Size(140, 40);
+            this.ExportCSVButton.Size = new System.Drawing.Size(210, 62);
             this.ExportCSVButton.TabIndex = 4;
             this.ExportCSVButton.Text = "Export CSV";
             this.ExportCSVButton.UseVisualStyleBackColor = true;
@@ -1051,25 +1040,89 @@
             this.StopButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.StopButton.Enabled = false;
             this.StopButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.StopButton.Location = new System.Drawing.Point(327, 520);
-            this.StopButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.StopButton.Location = new System.Drawing.Point(352, 42);
+            this.StopButton.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.StopButton.Name = "StopButton";
-            this.StopButton.Size = new System.Drawing.Size(140, 40);
+            this.StopButton.Size = new System.Drawing.Size(210, 62);
             this.StopButton.TabIndex = 5;
             this.StopButton.Text = "Stop";
             this.StopButton.UseVisualStyleBackColor = true;
             this.StopButton.Click += new System.EventHandler(this.StopButton_Click);
             // 
+            // ParcelOutputViewPanel
+            // 
+            this.ParcelOutputViewPanel.Controls.Add(this.OutputViewPanel);
+            this.ParcelOutputViewPanel.Controls.Add(this.ActionButtomPanel);
+            this.ParcelOutputViewPanel.Location = new System.Drawing.Point(4, 5);
+            this.ParcelOutputViewPanel.Name = "ParcelOutputViewPanel";
+            this.ParcelOutputViewPanel.Size = new System.Drawing.Size(889, 713);
+            this.ParcelOutputViewPanel.TabIndex = 0;
+            // 
+            // ActionButtomPanel
+            // 
+            this.ActionButtomPanel.Controls.Add(this.StopButton);
+            this.ActionButtomPanel.Controls.Add(this.StartCrawlerButton);
+            this.ActionButtomPanel.Controls.Add(this.ExportCSVButton);
+            this.ActionButtomPanel.Location = new System.Drawing.Point(4, 568);
+            this.ActionButtomPanel.Name = "ActionButtomPanel";
+            this.ActionButtomPanel.Size = new System.Drawing.Size(882, 142);
+            this.ActionButtomPanel.TabIndex = 0;
+            // 
+            // OutputViewPanel
+            // 
+            this.OutputViewPanel.Controls.Add(this.OutPutTabPanel);
+            this.OutputViewPanel.Location = new System.Drawing.Point(4, 4);
+            this.OutputViewPanel.Name = "OutputViewPanel";
+            this.OutputViewPanel.Size = new System.Drawing.Size(882, 558);
+            this.OutputViewPanel.TabIndex = 1;
+            // 
+            // OutPutTabPanel
+            // 
+            this.OutPutTabPanel.Controls.Add(this.HistoryTab);
+            this.OutPutTabPanel.Controls.Add(this.DinquentPanel);
+            this.OutPutTabPanel.Controls.Add(this.ErrorTab);
+            this.OutPutTabPanel.Location = new System.Drawing.Point(4, 4);
+            this.OutPutTabPanel.Name = "OutPutTabPanel";
+            this.OutPutTabPanel.SelectedIndex = 0;
+            this.OutPutTabPanel.Size = new System.Drawing.Size(875, 551);
+            this.OutPutTabPanel.TabIndex = 0;
+            // 
+            // DinquentPanel
+            // 
+            this.DinquentPanel.Location = new System.Drawing.Point(4, 29);
+            this.DinquentPanel.Name = "DinquentPanel";
+            this.DinquentPanel.Padding = new System.Windows.Forms.Padding(3);
+            this.DinquentPanel.Size = new System.Drawing.Size(867, 518);
+            this.DinquentPanel.TabIndex = 0;
+            this.DinquentPanel.Text = "Delinquent";
+            this.DinquentPanel.UseVisualStyleBackColor = true;
+            // 
+            // ErrorTab
+            // 
+            this.ErrorTab.Location = new System.Drawing.Point(4, 29);
+            this.ErrorTab.Name = "ErrorTab";
+            this.ErrorTab.Padding = new System.Windows.Forms.Padding(3);
+            this.ErrorTab.Size = new System.Drawing.Size(867, 518);
+            this.ErrorTab.TabIndex = 1;
+            this.ErrorTab.Text = "Errors";
+            this.ErrorTab.UseVisualStyleBackColor = true;
+            // 
+            // HistoryTab
+            // 
+            this.HistoryTab.Location = new System.Drawing.Point(4, 29);
+            this.HistoryTab.Name = "HistoryTab";
+            this.HistoryTab.Size = new System.Drawing.Size(867, 518);
+            this.HistoryTab.TabIndex = 2;
+            this.HistoryTab.Text = "Crawl History";
+            this.HistoryTab.UseVisualStyleBackColor = true;
+            // 
             // CrawlerMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(924, 567);
-            this.Controls.Add(this.StopButton);
-            this.Controls.Add(this.ExportCSVButton);
-            this.Controls.Add(this.StartCrawlerButton);
+            this.ClientSize = new System.Drawing.Size(1386, 871);
             this.Controls.Add(this.MainTab);
-            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Name = "CrawlerMain";
             this.Text = "Crawler";
             ((System.ComponentModel.ISupportInitialize)(this.taxParcelInformationBindingSource)).EndInit();
@@ -1111,6 +1164,11 @@
             this.panel8.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.ParcelOutputViewPanel.ResumeLayout(false);
+            this.ActionButtomPanel.ResumeLayout(false);
+            this.OutputViewPanel.ResumeLayout(false);
+            this.OutPutTabPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1203,6 +1261,13 @@
         private System.Windows.Forms.Label TotalNotCrawledText;
         private System.Windows.Forms.Label TotalCrawledText;
         private System.Windows.Forms.Button StopButton;
+        private System.Windows.Forms.Panel ParcelOutputViewPanel;
+        private System.Windows.Forms.Panel OutputViewPanel;
+        private System.Windows.Forms.TabControl OutPutTabPanel;
+        private System.Windows.Forms.TabPage DinquentPanel;
+        private System.Windows.Forms.TabPage ErrorTab;
+        private System.Windows.Forms.Panel ActionButtomPanel;
+        private System.Windows.Forms.TabPage HistoryTab;
     }
 }
 

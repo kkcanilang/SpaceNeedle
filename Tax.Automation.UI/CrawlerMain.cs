@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Timers;
 using System.Windows.Forms;
-
+using Tax.Automation.UI.Logging;
 
 namespace Tax.Automation.UI
 {
@@ -17,6 +17,7 @@ namespace Tax.Automation.UI
         private System.Timers.Timer _timer;
 
         private PropertyTaxLocalReader _localDataReader;
+        private Logger _log;
 
         private static readonly object LockObjCommonFunction2 = new object();
 
@@ -25,7 +26,7 @@ namespace Tax.Automation.UI
             _localDataReader = new PropertyTaxLocalReader();
             _crawler = new SeattleLeadsCrawl();
             _timer = new System.Timers.Timer(10000);
-
+            _log = new Logger();
             _timer.Elapsed += OnTimedEvent;
 
 
@@ -97,7 +98,7 @@ namespace Tax.Automation.UI
                 }
                 catch (Exception e)
                 {
-                    
+                _log.LogError(e.Message);
                 }
             
 
@@ -136,6 +137,8 @@ namespace Tax.Automation.UI
             _crawler.DatabaseServer = this.DatabaseServerNameTextfield.Text.Trim();
 
             _crawler.SeleniumWebDriverFolder = this.DriverFolderNameTextField.Text.Trim();
+            _crawler.UserName = this.UserNameTextfield.Text.Trim();
+            _crawler.Password = this.PasswordTextField.Text.Trim();
             
             
             _crawler.Run();

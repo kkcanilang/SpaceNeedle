@@ -2,6 +2,7 @@
 using SeleniumAutomation.Selenium.Exception;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -11,6 +12,17 @@ namespace SeleniumAutomation.Selenium.Utilities
 {
     public class GeneralUntilities
     {
+
+        public static void KillAllBrowsersAndWebDrivers()
+        {
+            var webDrivers = Process.GetProcessesByName("IEDriverServer").Select(p => p.Id);
+            var browsers = Process.GetProcessesByName("iexplore").Select(p => p.Id);
+            var processIds = webDrivers.Concat(browsers);
+            foreach (var pid in processIds)
+            {
+                Process.GetProcessById(pid).Kill();
+            }
+        }
         public static void Wait(SeleniumElement element, int timeout)
         {
             int seconds = 0;

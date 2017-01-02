@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumAutomation", "SeleniumAutomation\SeleniumAutomation.csproj", "{EB91F3BE-B6DE-42C5-87BE-80859B5320FE}"
 EndProject
@@ -10,6 +10,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PKITA.Online.Test.Automation", "PKITA.Online.Test.Automation\PKITA.Online.Test.Automation.csproj", "{E95A5823-A01B-4846-863C-998612FB2049}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tax.Automation.UI", "Tax.Automation.UI\Tax.Automation.UI.csproj", "{62022999-2835-4BB2-8E37-926B8771D26D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tax.Automation.UI.Logging", "Tax.Automation.UI.Logging\Tax.Automation.UI.Logging.csproj", "{2A6BBF37-8E87-4689-8B95-146CA487682C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tax.Automation.UI.Run", "Tax.Automation.UI.Run\Tax.Automation.UI.Run.csproj", "{8136B74F-AA16-43FF-BE50-BF549C31FF5B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{62022999-2835-4BB2-8E37-926B8771D26D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62022999-2835-4BB2-8E37-926B8771D26D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62022999-2835-4BB2-8E37-926B8771D26D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A6BBF37-8E87-4689-8B95-146CA487682C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A6BBF37-8E87-4689-8B95-146CA487682C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A6BBF37-8E87-4689-8B95-146CA487682C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A6BBF37-8E87-4689-8B95-146CA487682C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8136B74F-AA16-43FF-BE50-BF549C31FF5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8136B74F-AA16-43FF-BE50-BF549C31FF5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8136B74F-AA16-43FF-BE50-BF549C31FF5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8136B74F-AA16-43FF-BE50-BF549C31FF5B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
