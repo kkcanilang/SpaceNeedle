@@ -280,7 +280,9 @@ namespace SeleniumAutomation.Automation.Data
             return rows;
 
         }
-        public bool InsertRecord(Hashtable CurrentRow)
+
+
+        public bool UpdateRecord(Hashtable CurrentRow)
         {
             _connectionString = "server=" + _databaseServer + ";" +
                                       "Trusted_Connection=yes;" +
@@ -314,6 +316,42 @@ namespace SeleniumAutomation.Automation.Data
             return true;
 
         }
+
+
+        public bool InsertRecord(string ParcelNumber)
+        {
+            _connectionString = "server=" + _databaseServer + ";" +
+                                      "Trusted_Connection=yes;" +
+                                       "database=" + DADABASE_NAME +
+                                      "connection timeout=30";
+
+            SqlConnection myConnection = new SqlConnection(_connectionString);
+
+            myConnection.Open();
+
+            using (var cmd = new SqlCommand()
+            {
+                CommandType = System.Data.CommandType.StoredProcedure,
+                CommandText = "iParecelNumber",
+                Connection = myConnection
+            })
+            {
+
+             
+                    cmd.Parameters.Add(new SqlParameter("@" + "TaxId", ParcelNumber));
+             
+
+                cmd.ExecuteNonQuery();
+            }
+
+            myConnection.Close();
+            myConnection.Dispose();
+            GC.Collect();
+
+            return true;
+
+        }
+
         public bool InsertDelinquentRecords(Hashtable CurrentRow)
         {
             _connectionString = "server=" + _databaseServer + ";" +

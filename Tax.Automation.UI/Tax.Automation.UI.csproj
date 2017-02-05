@@ -157,6 +157,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="DB_BACKUP\2-4-2017.bak" />
     <None Include="DelinquentTaxIds.xsc">
       <DependentUpon>DelinquentTaxIds.xsd</DependentUpon>
     </None>

@@ -124,20 +124,7 @@
             this.crawlHistoryListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.propertyTax_2DataSet1 = new Tax.Automation.UI.PropertyTax_2DataSet1();
             this.DinquentPanel = new System.Windows.Forms.TabPage();
-            this.dilinquentTaxIdsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.delinquentTaxIds = new Tax.Automation.UI.DelinquentTaxIds();
-            this.ErrorTab = new System.Windows.Forms.TabPage();
-            this.ActionButtomPanel = new System.Windows.Forms.Panel();
-            this.StopButton = new System.Windows.Forms.Button();
-            this.ExportCSVButton = new System.Windows.Forms.Button();
-            this.taxParcelInformationTableAdapter = new Tax.Automation.UI.PropertyTaxDataSetTableAdapters.TaxParcelInformationTableAdapter();
-            this.crawlHistoryListTableAdapter = new Tax.Automation.UI.PropertyTax_2DataSet1TableAdapters.CrawlHistoryListTableAdapter();
-            this.taxParcelInformationBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.dilinquentTaxIdsTableAdapter = new Tax.Automation.UI.DelinquentTaxIdsTableAdapters.DilinquentTaxIdsTableAdapter();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.propertyTax_2DataSet2 = new Tax.Automation.UI.PropertyTax_2DataSet2();
-            this.dilinquentTaxIdsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.dilinquentTaxIdsTableAdapter1 = new Tax.Automation.UI.PropertyTax_2DataSet2TableAdapters.DilinquentTaxIdsTableAdapter();
             this.fIRSTNAMEDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lASTNAMEDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mAILINGSTREETDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -161,6 +148,23 @@
             this.pARCELIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lANDUSEDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastModifiedDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dilinquentTaxIdsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.propertyTax_2DataSet2 = new Tax.Automation.UI.PropertyTax_2DataSet2();
+            this.ErrorTab = new System.Windows.Forms.TabPage();
+            this.ActionButtomPanel = new System.Windows.Forms.Panel();
+            this.StopButton = new System.Windows.Forms.Button();
+            this.ExportCSVButton = new System.Windows.Forms.Button();
+            this.ImportParcelsTab = new System.Windows.Forms.TabPage();
+            this.LoadParcelButton = new System.Windows.Forms.Button();
+            this.InstructionLabel = new System.Windows.Forms.Label();
+            this.dilinquentTaxIdsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.delinquentTaxIds = new Tax.Automation.UI.DelinquentTaxIds();
+            this.taxParcelInformationTableAdapter = new Tax.Automation.UI.PropertyTaxDataSetTableAdapters.TaxParcelInformationTableAdapter();
+            this.crawlHistoryListTableAdapter = new Tax.Automation.UI.PropertyTax_2DataSet1TableAdapters.CrawlHistoryListTableAdapter();
+            this.taxParcelInformationBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.dilinquentTaxIdsTableAdapter = new Tax.Automation.UI.DelinquentTaxIdsTableAdapters.DilinquentTaxIdsTableAdapter();
+            this.dilinquentTaxIdsTableAdapter1 = new Tax.Automation.UI.PropertyTax_2DataSet2TableAdapters.DilinquentTaxIdsTableAdapter();
+            this.ParcelListTextArea = new System.Windows.Forms.TextBox();
             this.ConfigTab.SuspendLayout();
             this.MainPanel.SuspendLayout();
             this.OutputPanel.SuspendLayout();
@@ -195,15 +199,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.CrawlerHistoryGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.crawlHistoryListBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.propertyTax_2DataSet1)).BeginInit();
-            
             this.DinquentPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dilinquentTaxIdsBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.propertyTax_2DataSet2)).BeginInit();
+            this.ActionButtomPanel.SuspendLayout();
+            this.ImportParcelsTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dilinquentTaxIdsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.delinquentTaxIds)).BeginInit();
-            this.ActionButtomPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.taxParcelInformationBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.propertyTax_2DataSet2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dilinquentTaxIdsBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // StartCrawlerButton
@@ -854,8 +858,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.MainTab.Controls.Add(this.DashboardTab);
-            this.MainTab.Controls.Add(this.ConfigTab);
+            this.MainTab.Controls.Add(this.ImportParcelsTab);
             this.MainTab.Controls.Add(this.AvailableParcelTab);
+            this.MainTab.Controls.Add(this.ConfigTab);
             this.MainTab.Location = new System.Drawing.Point(10, 10);
             this.MainTab.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.MainTab.Name = "MainTab";
@@ -1191,82 +1196,6 @@
             this.DinquentPanel.Text = "Delinquent";
             this.DinquentPanel.UseVisualStyleBackColor = true;
             // 
-            // dilinquentTaxIdsBindingSource
-            // 
-            this.dilinquentTaxIdsBindingSource.DataMember = "DilinquentTaxIds";
-            this.dilinquentTaxIdsBindingSource.DataSource = this.delinquentTaxIds;
-            // 
-            // delinquentTaxIds
-            // 
-            this.delinquentTaxIds.DataSetName = "DelinquentTaxIds";
-            this.delinquentTaxIds.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // ErrorTab
-            // 
-            this.ErrorTab.Location = new System.Drawing.Point(4, 22);
-            this.ErrorTab.Margin = new System.Windows.Forms.Padding(2);
-            this.ErrorTab.Name = "ErrorTab";
-            this.ErrorTab.Padding = new System.Windows.Forms.Padding(2);
-            this.ErrorTab.Size = new System.Drawing.Size(575, 332);
-            this.ErrorTab.TabIndex = 1;
-            this.ErrorTab.Text = "Errors";
-            this.ErrorTab.UseVisualStyleBackColor = true;
-            // 
-            // ActionButtomPanel
-            // 
-            this.ActionButtomPanel.Controls.Add(this.StopButton);
-            this.ActionButtomPanel.Controls.Add(this.StartCrawlerButton);
-            this.ActionButtomPanel.Controls.Add(this.ExportCSVButton);
-            this.ActionButtomPanel.Location = new System.Drawing.Point(3, 369);
-            this.ActionButtomPanel.Margin = new System.Windows.Forms.Padding(2);
-            this.ActionButtomPanel.Name = "ActionButtomPanel";
-            this.ActionButtomPanel.Size = new System.Drawing.Size(588, 92);
-            this.ActionButtomPanel.TabIndex = 0;
-            // 
-            // StopButton
-            // 
-            this.StopButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.StopButton.Enabled = false;
-            this.StopButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.StopButton.Location = new System.Drawing.Point(235, 27);
-            this.StopButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.StopButton.Name = "StopButton";
-            this.StopButton.Size = new System.Drawing.Size(140, 40);
-            this.StopButton.TabIndex = 5;
-            this.StopButton.Text = "Stop";
-            this.StopButton.UseVisualStyleBackColor = true;
-            this.StopButton.Click += new System.EventHandler(this.StopButton_Click);
-            // 
-            // ExportCSVButton
-            // 
-            this.ExportCSVButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.ExportCSVButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.ExportCSVButton.Location = new System.Drawing.Point(387, 27);
-            this.ExportCSVButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.ExportCSVButton.Name = "ExportCSVButton";
-            this.ExportCSVButton.Size = new System.Drawing.Size(140, 40);
-            this.ExportCSVButton.TabIndex = 4;
-            this.ExportCSVButton.Text = "Export CSV";
-            this.ExportCSVButton.UseVisualStyleBackColor = true;
-            this.ExportCSVButton.Click += new System.EventHandler(this.ExportCSVButton_Click);
-            // 
-            // taxParcelInformationTableAdapter
-            // 
-            this.taxParcelInformationTableAdapter.ClearBeforeFill = true;
-            // 
-            // crawlHistoryListTableAdapter
-            // 
-            this.crawlHistoryListTableAdapter.ClearBeforeFill = true;
-            // 
-            // taxParcelInformationBindingSource1
-            // 
-            this.taxParcelInformationBindingSource1.DataMember = "TaxParcelInformation";
-            this.taxParcelInformationBindingSource1.DataSource = this.propertyTaxDataSet;
-            // 
-            // dilinquentTaxIdsTableAdapter
-            // 
-            this.dilinquentTaxIdsTableAdapter.ClearBeforeFill = true;
-            // 
             // dataGridView1
             // 
             this.dataGridView1.AutoGenerateColumns = false;
@@ -1300,20 +1229,6 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(565, 322);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // propertyTax_2DataSet2
-            // 
-            this.propertyTax_2DataSet2.DataSetName = "PropertyTax_2DataSet2";
-            this.propertyTax_2DataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dilinquentTaxIdsBindingSource1
-            // 
-            this.dilinquentTaxIdsBindingSource1.DataMember = "DilinquentTaxIds";
-            this.dilinquentTaxIdsBindingSource1.DataSource = this.propertyTax_2DataSet2;
-            // 
-            // dilinquentTaxIdsTableAdapter1
-            // 
-            this.dilinquentTaxIdsTableAdapter1.ClearBeforeFill = true;
             // 
             // fIRSTNAMEDataGridViewTextBoxColumn1
             // 
@@ -1476,6 +1391,136 @@
             this.lastModifiedDateDataGridViewTextBoxColumn.Name = "lastModifiedDateDataGridViewTextBoxColumn";
             this.lastModifiedDateDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // dilinquentTaxIdsBindingSource1
+            // 
+            this.dilinquentTaxIdsBindingSource1.DataMember = "DilinquentTaxIds";
+            this.dilinquentTaxIdsBindingSource1.DataSource = this.propertyTax_2DataSet2;
+            // 
+            // propertyTax_2DataSet2
+            // 
+            this.propertyTax_2DataSet2.DataSetName = "PropertyTax_2DataSet2";
+            this.propertyTax_2DataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // ErrorTab
+            // 
+            this.ErrorTab.Location = new System.Drawing.Point(4, 22);
+            this.ErrorTab.Margin = new System.Windows.Forms.Padding(2);
+            this.ErrorTab.Name = "ErrorTab";
+            this.ErrorTab.Padding = new System.Windows.Forms.Padding(2);
+            this.ErrorTab.Size = new System.Drawing.Size(575, 332);
+            this.ErrorTab.TabIndex = 1;
+            this.ErrorTab.Text = "Errors";
+            this.ErrorTab.UseVisualStyleBackColor = true;
+            // 
+            // ActionButtomPanel
+            // 
+            this.ActionButtomPanel.Controls.Add(this.StopButton);
+            this.ActionButtomPanel.Controls.Add(this.StartCrawlerButton);
+            this.ActionButtomPanel.Controls.Add(this.ExportCSVButton);
+            this.ActionButtomPanel.Location = new System.Drawing.Point(3, 369);
+            this.ActionButtomPanel.Margin = new System.Windows.Forms.Padding(2);
+            this.ActionButtomPanel.Name = "ActionButtomPanel";
+            this.ActionButtomPanel.Size = new System.Drawing.Size(588, 92);
+            this.ActionButtomPanel.TabIndex = 0;
+            // 
+            // StopButton
+            // 
+            this.StopButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.StopButton.Enabled = false;
+            this.StopButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.StopButton.Location = new System.Drawing.Point(235, 27);
+            this.StopButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.StopButton.Name = "StopButton";
+            this.StopButton.Size = new System.Drawing.Size(140, 40);
+            this.StopButton.TabIndex = 5;
+            this.StopButton.Text = "Stop";
+            this.StopButton.UseVisualStyleBackColor = true;
+            this.StopButton.Click += new System.EventHandler(this.StopButton_Click);
+            // 
+            // ExportCSVButton
+            // 
+            this.ExportCSVButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.ExportCSVButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.ExportCSVButton.Location = new System.Drawing.Point(387, 27);
+            this.ExportCSVButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.ExportCSVButton.Name = "ExportCSVButton";
+            this.ExportCSVButton.Size = new System.Drawing.Size(140, 40);
+            this.ExportCSVButton.TabIndex = 4;
+            this.ExportCSVButton.Text = "Export CSV";
+            this.ExportCSVButton.UseVisualStyleBackColor = true;
+            this.ExportCSVButton.Click += new System.EventHandler(this.ExportCSVButton_Click);
+            // 
+            // ImportParcelsTab
+            // 
+            this.ImportParcelsTab.Controls.Add(this.ParcelListTextArea);
+            this.ImportParcelsTab.Controls.Add(this.LoadParcelButton);
+            this.ImportParcelsTab.Controls.Add(this.InstructionLabel);
+            this.ImportParcelsTab.Location = new System.Drawing.Point(4, 22);
+            this.ImportParcelsTab.Name = "ImportParcelsTab";
+            this.ImportParcelsTab.Size = new System.Drawing.Size(897, 477);
+            this.ImportParcelsTab.TabIndex = 3;
+            this.ImportParcelsTab.Text = "Import";
+            this.ImportParcelsTab.UseVisualStyleBackColor = true;
+            // 
+            // LoadParcelButton
+            // 
+            this.LoadParcelButton.Location = new System.Drawing.Point(359, 418);
+            this.LoadParcelButton.Name = "LoadParcelButton";
+            this.LoadParcelButton.Size = new System.Drawing.Size(210, 32);
+            this.LoadParcelButton.TabIndex = 2;
+            this.LoadParcelButton.Text = "Load Parcel(s)";
+            this.LoadParcelButton.UseVisualStyleBackColor = true;
+            this.LoadParcelButton.Click += new System.EventHandler(this.LoadParcelButton_Click);
+            // 
+            // InstructionLabel
+            // 
+            this.InstructionLabel.AutoSize = true;
+            this.InstructionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InstructionLabel.Location = new System.Drawing.Point(3, 18);
+            this.InstructionLabel.Name = "InstructionLabel";
+            this.InstructionLabel.Size = new System.Drawing.Size(376, 25);
+            this.InstructionLabel.TabIndex = 1;
+            this.InstructionLabel.Text = "Enter/Paste Parcels (1 parcel per line)";
+            // 
+            // dilinquentTaxIdsBindingSource
+            // 
+            this.dilinquentTaxIdsBindingSource.DataMember = "DilinquentTaxIds";
+            this.dilinquentTaxIdsBindingSource.DataSource = this.delinquentTaxIds;
+            // 
+            // delinquentTaxIds
+            // 
+            this.delinquentTaxIds.DataSetName = "DelinquentTaxIds";
+            this.delinquentTaxIds.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // taxParcelInformationTableAdapter
+            // 
+            this.taxParcelInformationTableAdapter.ClearBeforeFill = true;
+            // 
+            // crawlHistoryListTableAdapter
+            // 
+            this.crawlHistoryListTableAdapter.ClearBeforeFill = true;
+            // 
+            // taxParcelInformationBindingSource1
+            // 
+            this.taxParcelInformationBindingSource1.DataMember = "TaxParcelInformation";
+            this.taxParcelInformationBindingSource1.DataSource = this.propertyTaxDataSet;
+            // 
+            // dilinquentTaxIdsTableAdapter
+            // 
+            this.dilinquentTaxIdsTableAdapter.ClearBeforeFill = true;
+            // 
+            // dilinquentTaxIdsTableAdapter1
+            // 
+            this.dilinquentTaxIdsTableAdapter1.ClearBeforeFill = true;
+            // 
+            // ParcelListTextArea
+            // 
+            this.ParcelListTextArea.Location = new System.Drawing.Point(8, 46);
+            this.ParcelListTextArea.Multiline = true;
+            this.ParcelListTextArea.Name = "ParcelListTextArea";
+            this.ParcelListTextArea.Size = new System.Drawing.Size(886, 352);
+            this.ParcelListTextArea.TabIndex = 3;
+            // 
             // CrawlerMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1534,13 +1579,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.crawlHistoryListBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.propertyTax_2DataSet1)).EndInit();
             this.DinquentPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dilinquentTaxIdsBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.propertyTax_2DataSet2)).EndInit();
+            this.ActionButtomPanel.ResumeLayout(false);
+            this.ImportParcelsTab.ResumeLayout(false);
+            this.ImportParcelsTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dilinquentTaxIdsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.delinquentTaxIds)).EndInit();
-            this.ActionButtomPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.taxParcelInformationBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.propertyTax_2DataSet2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dilinquentTaxIdsBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1678,6 +1725,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn pARCELIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lANDUSEDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastModifiedDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TabPage ImportParcelsTab;
+        private System.Windows.Forms.Button LoadParcelButton;
+        private System.Windows.Forms.Label InstructionLabel;
+        private System.Windows.Forms.TextBox ParcelListTextArea;
     }
 }
 

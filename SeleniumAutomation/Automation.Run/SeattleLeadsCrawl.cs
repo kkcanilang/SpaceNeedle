@@ -158,7 +158,7 @@ namespace SeleniumAutomation.Automation.Run
                         currentRow["BatchID"] = batchId;
                         currentRow["BatchStartTime"] = batchStartTime;
 
-                        _dataReader.InsertRecord(currentRow);
+                        _dataReader.UpdateRecord(currentRow);
                         Console.WriteLine("Current Row : " + rowCount);
                         _log.LogInfo("Current Row : " + rowCount);
                         if (rowCount != 0 && rowCount % 20 == 0)

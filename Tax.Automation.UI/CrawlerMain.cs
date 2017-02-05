@@ -293,6 +293,24 @@ namespace Tax.Automation.UI
             return "Data Source=" + currentDataSource + ";Initial Catalog=" + PropertyTaxReader.DADABASE_NAME + "Integrated Security=True";
         }
 
+        private void LoadParcelButton_Click(object sender, EventArgs e)
+        {
+            this.LoadParcelButton.Enabled = false;
+            string parcelList = this.ParcelListTextArea.Text.Trim().Replace('\r',' ');
+            string[] parcels = parcelList.Split('\n');
+
+            foreach (string p in parcels)
+            {
+                _crawler.DataReader.InsertRecord(p);
+            }
+
+            this.LoadParcelButton.Enabled = true;
+
+            //put validation here.
+
+
+
+        }
     }
 
     public static class ThreadHelperClass
