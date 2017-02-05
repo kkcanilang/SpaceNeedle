@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DelinquentTaxIds" targetNamespace="http://tempuri.org/DelinquentTaxIds.xsd" xmlns:mstns="http://tempuri.org/DelinquentTaxIds.xsd" xmlns="http://tempuri.org/DelinquentTaxIds.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="PropertyTax_2ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="PropertyTax_2ConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Tax.Automation.UI.Properties.Settings.GlobalReference.Default.PropertyTax_2ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DilinquentTaxIdsTableAdapter" GeneratorDataComponentClassName="DilinquentTaxIdsTableAdapter" Name="DilinquentTaxIds" UserDataComponentName="DilinquentTaxIdsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PropertyTax_2ConnectionString (Settings)" DbObjectName="PropertyTax_2.dbo.DilinquentTaxIds" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT [FIRST NAME], [LAST NAME], [MAILING STREET], [MAILING CITY], [MAILING STATE], [MAILing STATE/Province], street, CITY, [STATE/Province], [Zip/Postal Code], [YR Built], [LEAD STATUS], LotSquareFoot, [LAST SOLD DATE], [CO OWNER NAME], [ASSESSED TOTAL], [ASSESSED STRUCTURE], [Assessed Land], ZONING, COMPANY, [PARCEL ID], [LAND USE] FROM dbo.DilinquentTaxIds</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="FIRST NAME" DataSetColumn="FIRST NAME" />
+              <Mapping SourceColumn="LAST NAME" DataSetColumn="LAST NAME" />
+              <Mapping SourceColumn="MAILING STREET" DataSetColumn="MAILING STREET" />
+              <Mapping SourceColumn="MAILING CITY" DataSetColumn="MAILING CITY" />
+              <Mapping SourceColumn="MAILING STATE" DataSetColumn="MAILING STATE" />
+              <Mapping SourceColumn="MAILing STATE/Province" DataSetColumn="MAILing STATE/Province" />
+              <Mapping SourceColumn="street" DataSetColumn="street" />
+              <Mapping SourceColumn="CITY" DataSetColumn="CITY" />
+              <Mapping SourceColumn="STATE/Province" DataSetColumn="STATE/Province" />
+              <Mapping SourceColumn="Zip/Postal Code" DataSetColumn="Zip/Postal Code" />
+              <Mapping SourceColumn="YR Built" DataSetColumn="YR Built" />
+              <Mapping SourceColumn="LEAD STATUS" DataSetColumn="LEAD STATUS" />
+              <Mapping SourceColumn="LotSquareFoot" DataSetColumn="LotSquareFoot" />
+              <Mapping SourceColumn="LAST SOLD DATE" DataSetColumn="LAST SOLD DATE" />
+              <Mapping SourceColumn="CO OWNER NAME" DataSetColumn="CO OWNER NAME" />
+              <Mapping SourceColumn="ASSESSED TOTAL" DataSetColumn="ASSESSED TOTAL" />
+              <Mapping SourceColumn="ASSESSED STRUCTURE" DataSetColumn="ASSESSED STRUCTURE" />
+              <Mapping SourceColumn="Assessed Land" DataSetColumn="Assessed Land" />
+              <Mapping SourceColumn="ZONING" DataSetColumn="ZONING" />
+              <Mapping SourceColumn="COMPANY" DataSetColumn="COMPANY" />
+              <Mapping SourceColumn="PARCEL ID" DataSetColumn="PARCEL ID" />
+              <Mapping SourceColumn="LAND USE" DataSetColumn="LAND USE" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DelinquentTaxIds" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DelinquentTaxIds" msprop:Generator_UserDSName="DelinquentTaxIds">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DilinquentTaxIds" msprop:Generator_TableClassName="DilinquentTaxIdsDataTable" msprop:Generator_TableVarName="tableDilinquentTaxIds" msprop:Generator_TablePropName="DilinquentTaxIds" msprop:Generator_RowDeletingName="DilinquentTaxIdsRowDeleting" msprop:Generator_RowChangingName="DilinquentTaxIdsRowChanging" msprop:Generator_RowEvHandlerName="DilinquentTaxIdsRowChangeEventHandler" msprop:Generator_RowDeletedName="DilinquentTaxIdsRowDeleted" msprop:Generator_UserTableName="DilinquentTaxIds" msprop:Generator_RowChangedName="DilinquentTaxIdsRowChanged" msprop:Generator_RowEvArgName="DilinquentTaxIdsRowChangeEvent" msprop:Generator_RowClassName="DilinquentTaxIdsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FIRST_x0020_NAME" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFIRST_NAME" msprop:Generator_ColumnPropNameInRow="FIRST_NAME" msprop:Generator_ColumnPropNameInTable="FIRST_NAMEColumn" msprop:Generator_UserColumnName="FIRST NAME" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LAST_x0020_NAME" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnLAST_NAME" msprop:Generator_ColumnPropNameInRow="LAST_NAME" msprop:Generator_ColumnPropNameInTable="LAST_NAMEColumn" msprop:Generator_UserColumnName="LAST NAME" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MAILING_x0020_STREET" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMAILING_STREET" msprop:Generator_ColumnPropNameInRow="MAILING_STREET" msprop:Generator_ColumnPropNameInTable="MAILING_STREETColumn" msprop:Generator_UserColumnName="MAILING STREET" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MAILING_x0020_CITY" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMAILING_CITY" msprop:Generator_ColumnPropNameInRow="MAILING_CITY" msprop:Generator_ColumnPropNameInTable="MAILING_CITYColumn" msprop:Generator_UserColumnName="MAILING CITY" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MAILING_x0020_STATE" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMAILING_STATE" msprop:Generator_ColumnPropNameInRow="MAILING_STATE" msprop:Generator_ColumnPropNameInTable="MAILING_STATEColumn" msprop:Generator_UserColumnName="MAILING STATE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MAILing_x0020_STATE_x002F_Province" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="_columnMAILing_STATE_Province" msprop:Generator_ColumnPropNameInRow="_MAILing_STATE_Province" msprop:Generator_ColumnPropNameInTable="_MAILing_STATE_ProvinceColumn" msprop:Generator_UserColumnName="MAILing STATE/Province" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="street" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnstreet" msprop:Generator_ColumnPropNameInRow="street" msprop:Generator_ColumnPropNameInTable="streetColumn" msprop:Generator_UserColumnName="street" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CITY" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCITY" msprop:Generator_ColumnPropNameInRow="CITY" msprop:Generator_ColumnPropNameInTable="CITYColumn" msprop:Generator_UserColumnName="CITY" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="STATE_x002F_Province" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="_columnSTATE_Province" msprop:Generator_ColumnPropNameInRow="_STATE_Province" msprop:Generator_ColumnPropNameInTable="_STATE_ProvinceColumn" msprop:Generator_UserColumnName="STATE/Province" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Zip_x002F_Postal_x0020_Code" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="_columnZip_Postal_Code" msprop:Generator_ColumnPropNameInRow="_Zip_Postal_Code" msprop:Generator_ColumnPropNameInTable="_Zip_Postal_CodeColumn" msprop:Generator_UserColumnName="Zip/Postal Code" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="YR_x0020_Built" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnYR_Built" msprop:Generator_ColumnPropNameInRow="YR_Built" msprop:Generator_ColumnPropNameInTable="YR_BuiltColumn" msprop:Generator_UserColumnName="YR Built" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LEAD_x0020_STATUS" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnLEAD_STATUS" msprop:Generator_ColumnPropNameInRow="LEAD_STATUS" msprop:Generator_ColumnPropNameInTable="LEAD_STATUSColumn" msprop:Generator_UserColumnName="LEAD STATUS" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LotSquareFoot" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnLotSquareFoot" msprop:Generator_ColumnPropNameInRow="LotSquareFoot" msprop:Generator_ColumnPropNameInTable="LotSquareFootColumn" msprop:Generator_UserColumnName="LotSquareFoot" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LAST_x0020_SOLD_x0020_DATE" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnLAST_SOLD_DATE" msprop:Generator_ColumnPropNameInRow="LAST_SOLD_DATE" msprop:Generator_ColumnPropNameInTable="LAST_SOLD_DATEColumn" msprop:Generator_UserColumnName="LAST SOLD DATE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CO_x0020_OWNER_x0020_NAME" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCO_OWNER_NAME" msprop:Generator_ColumnPropNameInRow="CO_OWNER_NAME" msprop:Generator_ColumnPropNameInTable="CO_OWNER_NAMEColumn" msprop:Generator_UserColumnName="CO OWNER NAME" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ASSESSED_x0020_TOTAL" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnASSESSED_TOTAL" msprop:Generator_ColumnPropNameInRow="ASSESSED_TOTAL" msprop:Generator_ColumnPropNameInTable="ASSESSED_TOTALColumn" msprop:Generator_UserColumnName="ASSESSED TOTAL" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ASSESSED_x0020_STRUCTURE" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnASSESSED_STRUCTURE" msprop:Generator_ColumnPropNameInRow="ASSESSED_STRUCTURE" msprop:Generator_ColumnPropNameInTable="ASSESSED_STRUCTUREColumn" msprop:Generator_UserColumnName="ASSESSED STRUCTURE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Assessed_x0020_Land" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnAssessed_Land" msprop:Generator_ColumnPropNameInRow="Assessed_Land" msprop:Generator_ColumnPropNameInTable="Assessed_LandColumn" msprop:Generator_UserColumnName="Assessed Land" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ZONING" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnZONING" msprop:Generator_ColumnPropNameInRow="ZONING" msprop:Generator_ColumnPropNameInTable="ZONINGColumn" msprop:Generator_UserColumnName="ZONING" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="COMPANY" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCOMPANY" msprop:Generator_ColumnPropNameInRow="COMPANY" msprop:Generator_ColumnPropNameInTable="COMPANYColumn" msprop:Generator_UserColumnName="COMPANY" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="13" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PARCEL_x0020_ID" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPARCEL_ID" msprop:Generator_ColumnPropNameInRow="PARCEL_ID" msprop:Generator_ColumnPropNameInTable="PARCEL_IDColumn" msprop:Generator_UserColumnName="PARCEL ID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LAND_x0020_USE" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnLAND_USE" msprop:Generator_ColumnPropNameInRow="LAND_USE" msprop:Generator_ColumnPropNameInTable="LAND_USEColumn" msprop:Generator_UserColumnName="LAND USE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

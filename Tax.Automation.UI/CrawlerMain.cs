@@ -4,6 +4,8 @@ using SeleniumAutomation.Automation.Run;
 using SeleniumAutomation.Frameworks.Model;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Diagnostics;
 using System.Threading;
 using System.Timers;
 using System.Windows.Forms;
@@ -27,14 +29,20 @@ namespace Tax.Automation.UI
             _crawler = new SeattleLeadsCrawl();
             _timer = new System.Timers.Timer(10000);
             _log = new Logger();
-            _timer.Elapsed += OnTimedEvent;
-
 
             ShowModalDialog();
 
             InitializeComponent();
 
             LoadSavedValues();
+            ChangeConnectionForTable();
+
+            _timer.Elapsed += OnTimedEvent;
+            _timer.Elapsed += CrawlerMain_Load_1;
+
+
+          
+
             //this.StopButton.Visible = false;
         }
 
@@ -44,7 +52,7 @@ namespace Tax.Automation.UI
             {
                 Text = "DatabaseInfo",
             };
-            modal.ShowDialog();      
+            modal.ShowDialog();
         }
 
         private void LoadSavedValues()
@@ -80,27 +88,27 @@ namespace Tax.Automation.UI
                 }
             }
 
-            
-                try
+
+            try
+            {
+                _crawler.DataReader.DatabaseServer = this.DatabaseServerNameTextfield.Text.Trim();
+                SeattleTaxIdsCrawlerTotals totals = _crawler.DataReader.TaxTotals();
+
+                this.TotalCrawledText.Text = totals.TotalCrawled;
+                this.TotalNotCrawledText.Text = totals.TotalUncrawled;
+                this.TotalCrawledErrorText.Text = totals.TotalErrorCrawled;
+
+                if ((!string.IsNullOrEmpty(PasswordTextField.Text) && (!string.IsNullOrEmpty(UserNameTextfield.Text))))
                 {
-                    _crawler.DataReader.DatabaseServer = this.DatabaseServerNameTextfield.Text.Trim();
-                    SeattleTaxIdsCrawlerTotals totals = _crawler.DataReader.TaxTotals();
+                    this.TotalCaptchaCreditText.Text = CaptchaSolver.GetBalance(UserNameTextfield.Text, PasswordTextField.Text);
 
-                    this.TotalCrawledText.Text = totals.TotalCrawled;
-                    this.TotalNotCrawledText.Text = totals.TotalUncrawled;
-                    this.TotalCrawledErrorText.Text = totals.TotalErrorCrawled;
-
-                    if ((!string.IsNullOrEmpty(PasswordTextField.Text) && (!string.IsNullOrEmpty(UserNameTextfield.Text))))
-                    {
-                        this.TotalCaptchaCreditText.Text = CaptchaSolver.GetBalance(UserNameTextfield.Text, PasswordTextField.Text);
-
-                    }
                 }
-                catch (Exception e)
-                {
+            }
+            catch (Exception e)
+            {
                 _log.LogError(e.Message);
-                }
-            
+            }
+
 
 
 
@@ -115,6 +123,20 @@ namespace Tax.Automation.UI
             ThreadHelperClass.SetText(this, TotalCrawledText, totals.TotalCrawled);
             ThreadHelperClass.SetText(this, TotalNotCrawledText, totals.TotalUncrawled);
             ThreadHelperClass.SetText(this, TotalCrawledErrorText, totals.TotalErrorCrawled);
+
+            CrawlerHistoryGridView.Invoke(new Action(() =>
+            {
+                try
+                {
+                    CrawlerHistoryGridView.Update();
+                    CrawlerHistoryGridView.Refresh();
+                }
+                catch (Exception ex)
+                {
+                    _log.LogError(ex.ToString());
+                }
+            }));
+
         }
 
         private void StartCrawlerButton_Click(object sender, EventArgs e)
@@ -122,11 +144,11 @@ namespace Tax.Automation.UI
             StartCrawlerButton.Enabled = false;
             this.StopButton.Enabled = true;
             Thread newThread = new Thread(DoWork);
-            
+
             _timer.Start();
             newThread.Start();
-            
- 
+
+
 
 
 
@@ -139,8 +161,8 @@ namespace Tax.Automation.UI
             _crawler.SeleniumWebDriverFolder = this.DriverFolderNameTextField.Text.Trim();
             _crawler.UserName = this.UserNameTextfield.Text.Trim();
             _crawler.Password = this.PasswordTextField.Text.Trim();
-            
-            
+
+
             _crawler.Run();
         }
 
@@ -162,7 +184,7 @@ namespace Tax.Automation.UI
 
             if (!this.taxParcelInformationTableAdapter.Connection.DataSource.Equals(currentDataSource))
             {
-                this.taxParcelInformationTableAdapter.Connection.ConnectionString = "Data Source=" + currentDataSource + ";Initial Catalog="+ PropertyTaxReader.DADABASE_NAME + "Integrated Security=True";
+                this.taxParcelInformationTableAdapter.Connection.ConnectionString = "Data Source=" + currentDataSource + ";Initial Catalog=" + PropertyTaxReader.DADABASE_NAME + "Integrated Security=True";
             }
 
             this.richTextBox1.Text = this.taxParcelInformationTableAdapter.Connection.ConnectionString;
@@ -204,7 +226,7 @@ namespace Tax.Automation.UI
             _crawler.DataReader.DatabaseServer = this.DatabaseServerNameTextfield.Text.Trim();
             List<List<String>> results = _crawler.DataReader.DilinquentTaxIds();
 
-            string content =  OutputFile.DelinquientCSVContent(results);
+            string content = OutputFile.DelinquientCSVContent(results);
             SaveFileDialog dialog = new SaveFileDialog();
             dialog.Filter = "CSV|*.csv";
             dialog.Title = "Save CSV File";
@@ -220,11 +242,57 @@ namespace Tax.Automation.UI
 
         private void StopButton_Click(object sender, EventArgs e)
         {
-            
+
             _crawler.Stop();
             this.StopButton.Enabled = false;
             this.StartCrawlerButton.Enabled = true;
+            CrawlerHistoryGridView.Update();
+            CrawlerHistoryGridView.Refresh();
         }
+
+        private void CrawlerMain_Load_1(object sender, EventArgs e)
+        {
+
+            this.dilinquentTaxIdsTableAdapter1.Connection.ConnectionString = ChangeConnectionForTable();
+            this.dilinquentTaxIdsTableAdapter.Connection.ConnectionString = ChangeConnectionForTable();
+            this.crawlHistoryListTableAdapter.Connection.ConnectionString = ChangeConnectionForTable();
+
+            // TODO: This line of code loads data into the 'propertyTax_2DataSet2.DilinquentTaxIds' table. You can move, or remove it, as needed.
+            this.dilinquentTaxIdsTableAdapter1.Fill(this.propertyTax_2DataSet2.DilinquentTaxIds);
+            // TODO: This line of code loads data into the 'delinquentTaxIds.DilinquentTaxIds' table. You can move, or remove it, as needed.
+            this.dilinquentTaxIdsTableAdapter.Fill(this.delinquentTaxIds.DilinquentTaxIds);
+            // TODO: This line of code loads data into the 'propertyTax_2DataSet1.CrawlHistoryList' table. You can move, or remove it, as needed.
+            this.crawlHistoryListTableAdapter.Fill(this.propertyTax_2DataSet1.CrawlHistoryList);
+        }
+
+      
+
+        private void CrawlerHistoryGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridView dgv = sender as DataGridView;
+            if (dgv == null)
+                return;
+            else {
+                var obj = dgv.CurrentRow;
+
+                string batchId = obj.Cells[0].Value.ToString();
+                
+                DisplayTaxParcelInformation dialog = new DisplayTaxParcelInformation(batchId, this.DatabaseServerNameTextfield.Text);
+
+                dialog.ShowDialog();
+
+
+
+            }
+           
+        }
+
+        private string ChangeConnectionForTable()
+        {
+            string currentDataSource = this.DatabaseServerNameTextfield.Text.Trim();
+            return "Data Source=" + currentDataSource + ";Initial Catalog=" + PropertyTaxReader.DADABASE_NAME + "Integrated Security=True";
+        }
+
     }
 
     public static class ThreadHelperClass
@@ -251,5 +319,12 @@ namespace Tax.Automation.UI
                 ctrl.Text = text;
             }
         }
+
+ 
+   
+
+
     }
+
+
 }

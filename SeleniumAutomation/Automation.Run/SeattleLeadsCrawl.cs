@@ -92,15 +92,26 @@ namespace SeleniumAutomation.Automation.Run
 
         public void Stop()
         {
-            _driver.Close();
-            _driver.Dispose();
-            
+            try
+            {
+                _driver.Close();
+                _driver.Dispose();
+            }
+            catch (Exception ex)
+            {
+                _log.LogError(ex.ToString());
+            }
+
+
         }
 
         public void  RunParcelTaxReaderInfo(List<string> parcels)
         {
             try
             {
+                string batchId = System.Guid.NewGuid().ToString();
+                string batchStartTime = DateTime.Now.ToLocalTime().ToString("yyyy-MM-dd HH:mm:ss");
+            
                 int numberOfParcels = parcels.Count;
                 int rowCount = 0;
                 Stopwatch stopWatch = new Stopwatch();
@@ -144,6 +155,8 @@ namespace SeleniumAutomation.Automation.Run
 
 
                         currentRow["QueryTime"] = elapsedTime;
+                        currentRow["BatchID"] = batchId;
+                        currentRow["BatchStartTime"] = batchStartTime;
 
                         _dataReader.InsertRecord(currentRow);
                         Console.WriteLine("Current Row : " + rowCount);

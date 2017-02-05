@@ -14,18 +14,17 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>C:\Install\Crawler\</PublishUrl>
+    <PublishUrl>C:\Install\Cawler_r_9_3\</PublishUrl>
     <Install>true</Install>
-    <InstallFrom>Unc</InstallFrom>
-    <UpdateEnabled>true</UpdateEnabled>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
     <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>\\DESKTOP-2FAD001\Install\Crawler\</InstallUrl>
-    <ApplicationRevision>39</ApplicationRevision>
+    <ApplicationRevision>43</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -71,6 +70,7 @@
   <PropertyGroup />
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -101,6 +101,17 @@
     <Compile Include="DatabaseConnectionModal.Designer.cs">
       <DependentUpon>DatabaseConnectionModal.cs</DependentUpon>
     </Compile>
+    <Compile Include="DelinquentTaxIds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DelinquentTaxIds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DisplayTaxParcelInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DisplayTaxParcelInformation.Designer.cs">
+      <DependentUpon>DisplayTaxParcelInformation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PropertyTaxDataSet.Designer.cs">
@@ -108,14 +119,33 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PropertyTaxDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="PropertyTax_2DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PropertyTax_2DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyTax_2DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PropertyTax_2DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyTax_2DataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PropertyTax_2DataSet2.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="ConnectingModal.resx">
       <DependentUpon>ConnectingModal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CrawlerMain.resx">
       <DependentUpon>CrawlerMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="DatabaseConnectionModal.resx">
       <DependentUpon>DatabaseConnectionModal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DisplayTaxParcelInformation.resx">
+      <DependentUpon>DisplayTaxParcelInformation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -127,6 +157,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="DelinquentTaxIds.xsc">
+      <DependentUpon>DelinquentTaxIds.xsd</DependentUpon>
+    </None>
+    <None Include="DelinquentTaxIds.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DelinquentTaxIds.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DelinquentTaxIds.xss">
+      <DependentUpon>DelinquentTaxIds.xsd</DependentUpon>
+    </None>
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -147,6 +188,39 @@
     </None>
     <None Include="PropertyTaxDataSet.xss">
       <DependentUpon>PropertyTaxDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PropertyTax_2DataSet.xsc">
+      <DependentUpon>PropertyTax_2DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PropertyTax_2DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PropertyTax_2DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PropertyTax_2DataSet.xss">
+      <DependentUpon>PropertyTax_2DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PropertyTax_2DataSet1.xsc">
+      <DependentUpon>PropertyTax_2DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="PropertyTax_2DataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PropertyTax_2DataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PropertyTax_2DataSet1.xss">
+      <DependentUpon>PropertyTax_2DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="PropertyTax_2DataSet2.xsc">
+      <DependentUpon>PropertyTax_2DataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="PropertyTax_2DataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PropertyTax_2DataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PropertyTax_2DataSet2.xss">
+      <DependentUpon>PropertyTax_2DataSet2.xsd</DependentUpon>
     </None>
     <None Include="Tax.Automation.UI_TemporaryKey.pfx" />
   </ItemGroup>

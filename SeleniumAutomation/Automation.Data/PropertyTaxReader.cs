@@ -149,6 +149,73 @@ namespace SeleniumAutomation.Automation.Data
 
         }
 
+        public DataTable GetParcelNumbersByBatch(string batchId)
+        {
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand();
+
+            _connectionString = "server=" + _databaseServer + ";" +
+                          "Trusted_Connection=yes;" +
+                          "database=" + DADABASE_NAME +
+                          "connection timeout=30";
+
+            SqlConnection con = new SqlConnection(_connectionString);
+
+            try
+            {
+                cmd.Connection = con; //database connection
+                cmd.CommandText = "ListTaxParcelInformationFromBatch"; //  Stored procedure name
+                cmd.CommandType = CommandType.StoredProcedure; // set it to stored proc
+                                                               //add parameter if necessary
+                cmd.Parameters.Add("@BatchId", SqlDbType.VarChar).Value = batchId;
+
+                SqlDataAdapter adap = new SqlDataAdapter(cmd);
+                adap.Fill(dt);
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return dt;
+        }
+
+        public DataTable GetReciptsByTaxParcelInformationId(string id)
+        {
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand();
+
+            _connectionString = "server=" + _databaseServer + ";" +
+                          "Trusted_Connection=yes;" +
+                          "database=" + DADABASE_NAME +
+                          "connection timeout=30";
+
+            SqlConnection con = new SqlConnection(_connectionString);
+
+            try
+            {
+                cmd.Connection = con; //database connection
+                cmd.CommandText ="SELECT [Date]"
+                                      +",[ReceiptNumber]"
+                                      +",[Amount]"
+                                      +" FROM[PropertyTax_2].[dbo].[Receipts]"
+                                      + "where TaxParcelInformationId = " + id; 
+                //  Stored procedure name
+                cmd.CommandType = CommandType.Text; // set it to stored proc
+                                                               //add parameter if necessary
+
+
+                SqlDataAdapter adap = new SqlDataAdapter(cmd);
+                adap.Fill(dt);
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return dt;
+        }
+
 
         public List<List<String>> DilinquentTaxIds()
         {
