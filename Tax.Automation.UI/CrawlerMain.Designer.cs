@@ -1148,6 +1148,7 @@
             this.crawlStartTimeDataGridViewTextBoxColumn,
             this.parcelCrawlCountDataGridViewTextBoxColumn});
             this.CrawlerHistoryGridView.DataSource = this.crawlHistoryListBindingSource;
+            this.CrawlerHistoryGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.CrawlerHistoryGridView.Location = new System.Drawing.Point(3, 3);
             this.CrawlerHistoryGridView.Name = "CrawlerHistoryGridView";
             this.CrawlerHistoryGridView.Size = new System.Drawing.Size(568, 326);
