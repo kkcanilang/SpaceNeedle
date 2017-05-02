@@ -1531,7 +1531,7 @@
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "CrawlerMain";
             this.Text = "Crawler";
-            this.Load += new System.EventHandler(this.CrawlerMain_Load_1);
+            //this.Load += new System.EventHandler(this.CrawlerMain_Load_1);
             this.ConfigTab.ResumeLayout(false);
             this.ConfigTab.PerformLayout();
             this.MainPanel.ResumeLayout(false);

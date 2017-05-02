@@ -180,6 +180,58 @@ namespace SeleniumAutomation.Automation.Data
             return dt;
         }
 
+        public bool ExecuteQuery(string queryText)
+        {
+            _connectionString = "server=" + _databaseServer + ";" +
+                          "Trusted_Connection=yes;" +
+                          "database=" + DADABASE_NAME +
+                          "connection timeout=30";
+            try
+            {
+                using (SqlConnection sqlConn = new SqlConnection(_connectionString))
+                {
+                    using (SqlCommand cmd = new SqlCommand())
+                    {
+                        sqlConn.Open();
+                        cmd.CommandText = queryText;
+                        cmd.Connection = sqlConn;
+                        cmd.ExecuteReader();
+                        sqlConn.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+                 return true;
+        }
+
+
+        public DataTable UpdateParcelNumbersByBatch(string batchId)
+        {
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand();
+
+            _connectionString = "server=" + _databaseServer + ";" +
+                          "Trusted_Connection=yes;" +
+                          "database=" + DADABASE_NAME +
+                          "connection timeout=30";
+
+            SqlConnection con = new SqlConnection(_connectionString);
+
+            try
+            {
+               
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return dt;
+        }
+
         public DataTable GetReciptsByTaxParcelInformationId(string id)
         {
             DataTable dt = new DataTable();

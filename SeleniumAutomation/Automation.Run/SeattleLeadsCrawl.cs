@@ -94,12 +94,13 @@ namespace SeleniumAutomation.Automation.Run
         {
             try
             {
-                _driver.Close();
+                _driver.Quit();
+                //_driver.Close();
                 _driver.Dispose();
             }
             catch (Exception ex)
             {
-                _log.LogError(ex.ToString());
+                _log.LogError(ex.StackTrace);
             }
 
 

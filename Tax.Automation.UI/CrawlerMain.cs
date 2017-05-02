@@ -25,23 +25,30 @@ namespace Tax.Automation.UI
 
         public CrawlerMain()
         {
-            _localDataReader = new PropertyTaxLocalReader();
-            _crawler = new SeattleLeadsCrawl();
-            _timer = new System.Timers.Timer(10000);
-            _log = new Logger();
+            try
+            {
+                _localDataReader = new PropertyTaxLocalReader();
+                _crawler = new SeattleLeadsCrawl();
+                _timer = new System.Timers.Timer(10000);
+                _log = new Logger();
 
-            ShowModalDialog();
+                ShowModalDialog();
 
-            InitializeComponent();
+                InitializeComponent();
 
-            LoadSavedValues();
-            ChangeConnectionForTable();
+                LoadSavedValues();
+                ChangeConnectionForTable();
+                CrawlerMain_Load_1();
 
-            _timer.Elapsed += OnTimedEvent;
-            _timer.Elapsed += CrawlerMain_Load_1;
+                _timer.Elapsed += OnTimedEvent;
+                
 
+            }
+            catch (Exception ex)
+            {
+                _log.LogError(ex.Message);
+            }
 
-          
 
             //this.StopButton.Visible = false;
         }
@@ -133,7 +140,7 @@ namespace Tax.Automation.UI
                 }
                 catch (Exception ex)
                 {
-                    _log.LogError(ex.ToString());
+                    _log.LogError(ex.StackTrace);
                 }
             }));
 
@@ -194,9 +201,15 @@ namespace Tax.Automation.UI
 
         private void ParcelIdTab_Selected(object sender, EventArgs e)
         {
-
-            this.taxParcelInformationTableAdapter.Fill(this.propertyTaxDataSet.TaxParcelInformation);
-        }
+            try
+            {
+                this.taxParcelInformationTableAdapter.Fill(this.propertyTaxDataSet.TaxParcelInformation);
+            }
+            catch (Exception ex)
+            {
+                _log.LogError(ex.StackTrace);
+            }
+            }
 
         private void CrawlerMain_Load(object sender, EventArgs e)
         {
@@ -244,26 +257,39 @@ namespace Tax.Automation.UI
         {
 
             _crawler.Stop();
+            
             this.StopButton.Enabled = false;
             this.StartCrawlerButton.Enabled = true;
+
+            CrawlerMain_Load_1();
             CrawlerHistoryGridView.Update();
             CrawlerHistoryGridView.Refresh();
         }
 
-        private void CrawlerMain_Load_1(object sender, EventArgs e)
+        private void CrawlerMain_Load_1()
         {
+            try
+            {
+                this.dilinquentTaxIdsTableAdapter1.Connection.ConnectionString = ChangeConnectionForTable();
+                this.dilinquentTaxIdsTableAdapter.Connection.ConnectionString = ChangeConnectionForTable();
+                this.crawlHistoryListTableAdapter.Connection.ConnectionString = ChangeConnectionForTable();
 
-            this.dilinquentTaxIdsTableAdapter1.Connection.ConnectionString = ChangeConnectionForTable();
-            this.dilinquentTaxIdsTableAdapter.Connection.ConnectionString = ChangeConnectionForTable();
-            this.crawlHistoryListTableAdapter.Connection.ConnectionString = ChangeConnectionForTable();
-
-            // TODO: This line of code loads data into the 'propertyTax_2DataSet2.DilinquentTaxIds' table. You can move, or remove it, as needed.
-            this.dilinquentTaxIdsTableAdapter1.Fill(this.propertyTax_2DataSet2.DilinquentTaxIds);
-            // TODO: This line of code loads data into the 'delinquentTaxIds.DilinquentTaxIds' table. You can move, or remove it, as needed.
-            this.dilinquentTaxIdsTableAdapter.Fill(this.delinquentTaxIds.DilinquentTaxIds);
-            // TODO: This line of code loads data into the 'propertyTax_2DataSet1.CrawlHistoryList' table. You can move, or remove it, as needed.
-            this.crawlHistoryListTableAdapter.Fill(this.propertyTax_2DataSet1.CrawlHistoryList);
+                // TODO: This line of code loads data into the 'propertyTax_2DataSet2.DilinquentTaxIds' table. You can move, or remove it, as needed.
+                this.dilinquentTaxIdsTableAdapter1.Fill(this.propertyTax_2DataSet2.DilinquentTaxIds);
+                // TODO: This line of code loads data into the 'delinquentTaxIds.DilinquentTaxIds' table. You can move, or remove it, as needed.
+                this.dilinquentTaxIdsTableAdapter.Fill(this.delinquentTaxIds.DilinquentTaxIds);
+                // TODO: This line of code loads data into the 'propertyTax_2DataSet1.CrawlHistoryList' table. You can move, or remove it, as needed.
+                this.crawlHistoryListTableAdapter.Fill(this.propertyTax_2DataSet1.CrawlHistoryList);
+            }
+            catch (Exception ex)
+            {
+                _log.LogError(ex.StackTrace);
+            }
         }
+
+
+
+
 
       
 
@@ -277,7 +303,7 @@ namespace Tax.Automation.UI
 
                 string batchId = obj.Cells[0].Value.ToString();
                 
-                DisplayTaxParcelInformation dialog = new DisplayTaxParcelInformation(batchId, this.DatabaseServerNameTextfield.Text);
+                DisplayTaxParcelInformation dialog = new DisplayTaxParcelInformation(_log,batchId, this.DatabaseServerNameTextfield.Text);
 
                 dialog.ShowDialog();
 

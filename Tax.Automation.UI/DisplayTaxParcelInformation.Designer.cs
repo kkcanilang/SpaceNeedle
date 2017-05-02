@@ -109,6 +109,8 @@
             this.BatchTaxParcelInformationGridView.TabIndex = 0;
             this.BatchTaxParcelInformationGridView.CellClick += TaxInformationCell_Click;
             this.BatchTaxParcelInformationGridView.CellDoubleClick += OpenTaxIdWebSite_CellClick;
+            this.BatchTaxParcelInformationGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.Edit_TaxParcelInfor_Cell);
+            this.BatchTaxParcelInformationGridView.CellBeginEdit += null;
             // 
             // ParcelListLabel
             // 
